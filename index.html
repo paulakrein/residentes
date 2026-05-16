@@ -43,6 +43,28 @@
       </section>
 
       <section class="card">
+        <h2>Jogar os dados</h2>
+
+        <div class="simulador-dados">
+          <div id="areaDados" class="area-dados">
+            <p class="placeholder-dados">Escolha dados e clique em rolar.</p>
+          </div>
+
+          <div class="total-dados">
+            Total: <strong id="totalDados">0</strong>
+          </div>
+
+          <div class="controles-dados">
+            <button onclick="adicionarDado(4)">d4</button>
+            <button onclick="adicionarDado(6)">d6</button>
+            <button onclick="adicionarDado(8)">d8</button>
+            <button onclick="rolarDados()">Rolar</button>
+            <button onclick="limparDados()">Limpar</button>
+          </div>
+        </div>
+      </section>
+      
+      <section class="card">
         <h2>Setup inicial</h2>
 
         <div class="botoes">

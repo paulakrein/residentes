@@ -107,7 +107,7 @@ button:disabled {
 }
 
 .mini-carta {
-  width: 140px;
+  width: 400px;
   text-align: center;
 }
 
@@ -120,4 +120,78 @@ button:disabled {
 .mini-carta p {
   margin: 8px 0 0;
   font-size: 13px;
+}
+
+.simulador-dados {
+  background: #e8eefc;
+  color: #111;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.area-dados {
+  min-height: 220px;
+  padding: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  flex-wrap: wrap;
+}
+
+.placeholder-dados {
+  color: #555;
+}
+
+.total-dados {
+  background: white;
+  padding: 14px 18px;
+  text-align: right;
+  font-size: 22px;
+}
+
+.total-dados strong {
+  font-size: 42px;
+}
+
+.controles-dados {
+  background: white;
+  border-top: 1px solid #ddd;
+  padding: 14px;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.dado {
+  width: 92px;
+  height: 92px;
+  background: #16a34a;
+  color: white;
+  font-size: 34px;
+  font-weight: bold;
+  display: grid;
+  place-items: center;
+}
+
+.dado-d4 {
+  clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+}
+
+.dado-d6 {
+  border-radius: 12px;
+}
+
+.dado-d8 {
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+}
+
+.dado span {
+  transform: translateY(8px);
+}
+
+.dado-d6 span,
+.dado-d8 span {
+  transform: none;
 }

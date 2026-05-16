@@ -215,3 +215,55 @@ function mostrarCartas(lista, elemento) {
     )
     .join("");
 }
+
+let dadosSelecionados = [];
+let resultadosDados = [];
+
+function adicionarDado(lados) {
+  dadosSelecionados.push(lados);
+  resultadosDados.push(null);
+  renderizarDados();
+}
+
+function rolarDados() {
+  resultadosDados = dadosSelecionados.map(lados => {
+    return Math.floor(Math.random() * lados) + 1;
+  });
+
+  renderizarDados();
+}
+
+function limparDados() {
+  dadosSelecionados = [];
+  resultadosDados = [];
+  renderizarDados();
+}
+
+function renderizarDados() {
+  const areaDados = document.getElementById("areaDados");
+  const totalDados = document.getElementById("totalDados");
+
+  if (!areaDados || !totalDados) return;
+
+  if (dadosSelecionados.length === 0) {
+    areaDados.innerHTML = `<p class="placeholder-dados">Escolha dados e clique em rolar.</p>`;
+    totalDados.textContent = "0";
+    return;
+  }
+
+  const total = resultadosDados.reduce((soma, valor) => soma + (valor || 0), 0);
+  totalDados.textContent = total;
+
+  areaDados.innerHTML = dadosSelecionados
+    .map((lados, index) => {
+      const resultado = resultadosDados[index];
+      const texto = resultado === null ? `d${lados}` : resultado;
+
+      return `
+        <div class="dado dado-d${lados}">
+          <span>${texto}</span>
+        </div>
+      `;
+    })
+    .join("");
+}
