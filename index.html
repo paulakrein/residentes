@@ -1,21 +1,36 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Residentes</title>
-
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <main class="app">
+    <h1>Residentes</h1>
 
-  <h1>Residentes</h1>
+    <section class="card">
+      <h2>Criar jogador</h2>
 
-  <button id="sortear">Sortear Chefe</button>
+      <label for="nomeJogador">Nome do jogador</label>
+      <input id="nomeJogador" type="text" placeholder="Digite o nome" />
 
-  <div id="resultado"></div>
+      <button id="criarJogador">Criar jogador</button>
+      <button id="iniciarJogo" disabled>Iniciar jogo</button>
+    </section>
+
+    <section id="painelJogo" class="card hidden">
+      <h2 id="tituloJogador">Jogador</h2>
+      <p>Pontuação: <strong id="pontuacao">0</strong></p>
+
+      <button id="sortearResidentes">Sortear residentes</button>
+
+      <div id="residentesSorteados" class="resultado"></div>
+    </section>
+  </main>
 
   <script src="script.js"></script>
-
 </body>
 </html>
