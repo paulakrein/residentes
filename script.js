@@ -124,7 +124,7 @@ botaoComprarChefes.addEventListener("click", () => {
   const cartas = comprarDoBaralho("chefes", 2);
   jogador.chefes.push(...cartas);
 
-  mostrarCartas(jogador.chefes, chefesComprados);
+  mostrarCartas(jogador.chefes, chefesComprados, "chefes");
   botaoComprarChefes.disabled = true;
 });
 
@@ -132,7 +132,7 @@ botaoComprarTaticas.addEventListener("click", () => {
   const cartas = comprarDoBaralho("taticas", 3);
   jogador.taticas.push(...cartas);
 
-  mostrarCartas(jogador.taticas, taticasCompradas);
+  mostrarCartas(jogador.taticas, taticasCompradas, "taticas");
   botaoComprarTaticas.disabled = true;
 });
 
@@ -202,11 +202,15 @@ function mostrarResidentes(lista) {
     .join("");
 }
 
-function mostrarCartas(lista, elemento) {
+function mostrarCartas(lista, elemento, tipoLista) {
   elemento.innerHTML = lista
     .map(
-      carta => `
-        <article class="carta">
+      (carta, index) => `
+        <article class="carta carta-removivel">
+          <button class="botao-remover" onclick="removerCarta('${tipoLista}', ${index})">
+            ×
+          </button>
+
           <img src="${carta.imagem}" alt="${carta.nome}" />
           <h3>${carta.nome}</h3>
           <span class="tag">${carta.tipo}</span>
@@ -282,4 +286,38 @@ function rerrolarDado(index) {
 
     renderizarDados();
   }, 450);
+}
+
+function alterarEnergia(valor) {
+  jogador.energia += valor;
+
+  if (jogador.energia < 0) {
+    jogador.energia = 0;
+  }
+
+  energiaJogo.textContent = jogador.energia;
+}
+
+function comprarNovoChefe() {
+  const cartas = comprarDoBaralho("chefes", 1);
+  jogador.chefes.push(...cartas);
+  mostrarCartas(jogador.chefes, chefesComprados, "chefes");
+}
+
+function comprarNovaTatica() {
+  const cartas = comprarDoBaralho("taticas", 1);
+  jogador.taticas.push(...cartas);
+  mostrarCartas(jogador.taticas, taticasCompradas, "taticas");
+}
+
+function removerCarta(tipo, index) {
+  if (tipo === "chefes") {
+    jogador.chefes.splice(index, 1);
+    mostrarCartas(jogador.chefes, chefesComprados, "chefes");
+  }
+
+  if (tipo === "taticas") {
+    jogador.taticas.splice(index, 1);
+    mostrarCartas(jogador.taticas, taticasCompradas, "taticas");
+  }
 }

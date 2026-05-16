@@ -226,3 +226,46 @@ button:disabled {
     transform: rotate(360deg) scale(1);
   }
 }
+
+.botoes-energia {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.botoes-energia button {
+  padding: 8px 12px;
+  font-size: 13px;
+}
+
+.cabecalho-secao {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.carta-removivel {
+  position: relative;
+}
+
+.botao-remover {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+
+  width: 28px;
+  height: 28px;
+  padding: 0;
+
+  border-radius: 50%;
+  background: #111;
+  color: white;
+  font-size: 20px;
+  line-height: 28px;
+}
+
+.botao-remover:hover {
+  background: #7f1d1d;
+}

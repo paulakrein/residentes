@@ -37,6 +37,10 @@
           <h2 id="nomeJogadorAtivo">Jogador</h2>
           <p>Pontuação: <strong id="pontuacaoJogo">0</strong></p>
           <p>Energia: <strong id="energiaJogo">7</strong></p>
+          <div class="botoes-energia">
+            <button onclick="alterarEnergia(1)">+ energia</button>
+            <button onclick="alterarEnergia(-1)">− energia</button>
+          </div>
         </div>
 
         <div id="residenteAtivo" class="mini-carta"></div>
@@ -52,17 +56,23 @@
       </section>
 
       <section class="card">
-        <h2>Chefes em campo</h2>
+        <div class="cabecalho-secao">
+          <h2>Chefes em campo</h2>
+          <button onclick="comprarNovoChefe()">Sortear novo chefe</button>
+        </div>
+
         <div id="chefesComprados" class="grid-cartas"></div>
       </section>
 
       <section class="card">
-        <h2>Cartas táticas na mão</h2>
+        <div class="cabecalho-secao">
+          <h2>Cartas táticas na mão</h2>
+          <button onclick="comprarNovaTatica()">Sortear nova carta tática</button>
+        </div>
+
         <div id="taticasCompradas" class="grid-cartas"></div>
       </section>
-    </section>
-
-    
+      
       <section class="card">
         <h2>Jogar os dados</h2>
 
@@ -84,7 +94,11 @@
           </div>
         </div>
       </section>
-      
+
+    </section>
+
+    
+
   </main>
 
   <script src="script.js"></script>
