@@ -1,10 +1,18 @@
-/* script.js */
-const residentes = Array.from({ length: 32 }, (_, i) => `Residente ${i + 1}`);
+const residentes = Array.from({ length: 31 }, (_, i) => {
+  const numero = String(i + 1).padStart(2, "0");
+
+  return {
+    id: i + 1,
+    nome: `Residente ${i + 1}`,
+    imagem: `assets/cartas/residentes/residente-${numero}.png`
+  };
+});
 
 let jogador = {
   nome: "",
   pontuacao: 0,
-  residentesSorteados: []
+  residentesSorteados: [],
+  residenteEscolhido: null
 };
 
 const inputNome = document.getElementById("nomeJogador");
@@ -15,6 +23,7 @@ const tituloJogador = document.getElementById("tituloJogador");
 const pontuacao = document.getElementById("pontuacao");
 const botaoSortearResidentes = document.getElementById("sortearResidentes");
 const residentesSorteados = document.getElementById("residentesSorteados");
+const residenteEscolhido = document.getElementById("residenteEscolhido");
 
 botaoCriarJogador.addEventListener("click", () => {
   const nome = inputNome.value.trim();
@@ -24,13 +33,17 @@ botaoCriarJogador.addEventListener("click", () => {
     return;
   }
 
-  jogador.nome = nome;
-  jogador.pontuacao = 0;
-  jogador.residentesSorteados = [];
+  jogador = {
+    nome,
+    pontuacao: 0,
+    residentesSorteados: [],
+    residenteEscolhido: null
+  };
 
   tituloJogador.textContent = jogador.nome;
   pontuacao.textContent = jogador.pontuacao;
   residentesSorteados.innerHTML = "";
+  residenteEscolhido.innerHTML = "";
 
   botaoIniciarJogo.disabled = false;
 });
@@ -41,7 +54,10 @@ botaoIniciarJogo.addEventListener("click", () => {
 
 botaoSortearResidentes.addEventListener("click", () => {
   jogador.residentesSorteados = sortearSemRepetir(residentes, 3);
+  jogador.residenteEscolhido = null;
+
   mostrarResidentes(jogador.residentesSorteados);
+  residenteEscolhido.innerHTML = "";
 });
 
 function sortearSemRepetir(lista, quantidade) {
@@ -58,16 +74,31 @@ function sortearSemRepetir(lista, quantidade) {
 }
 
 function mostrarResidentes(lista) {
-  residentesSorteados.innerHTML = `
-    <h3>Escolha 1 residente</h3>
-    ${lista
-      .map(
-        residente => `
-          <div class="residente">
-            ${residente}
-          </div>
-        `
-      )
-      .join("")}
+  residentesSorteados.innerHTML = lista
+    .map(
+      residente => `
+        <article class="carta" data-id="${residente.id}">
+          <img src="${residente.imagem}" alt="${residente.nome}" />
+          <h3>${residente.nome}</h3>
+          <button onclick="escolherResidente(${residente.id})">
+            Escolher
+          </button>
+        </article>
+      `
+    )
+    .join("");
+}
+
+function escolherResidente(id) {
+  const residente = jogador.residentesSorteados.find(r => r.id === id);
+
+  jogador.residenteEscolhido = residente;
+
+  residenteEscolhido.innerHTML = `
+    <h3>Residente escolhido</h3>
+    <div class="carta carta-escolhida">
+      <img src="${residente.imagem}" alt="${residente.nome}" />
+      <h3>${residente.nome}</h3>
+    </div>
   `;
 }

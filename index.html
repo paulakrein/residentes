@@ -1,4 +1,3 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -17,17 +16,25 @@
       <label for="nomeJogador">Nome do jogador</label>
       <input id="nomeJogador" type="text" placeholder="Digite o nome" />
 
-      <button id="criarJogador">Criar jogador</button>
-      <button id="iniciarJogo" disabled>Iniciar jogo</button>
+      <div class="botoes">
+        <button id="criarJogador">Criar jogador</button>
+        <button id="iniciarJogo" disabled>Iniciar jogo</button>
+      </div>
     </section>
 
     <section id="painelJogo" class="card hidden">
-      <h2 id="tituloJogador">Jogador</h2>
-      <p>Pontuação: <strong id="pontuacao">0</strong></p>
+      <div class="topo-jogo">
+        <div>
+          <h2 id="tituloJogador">Jogador</h2>
+          <p>Pontuação: <strong id="pontuacao">0</strong></p>
+        </div>
+      </div>
 
-      <button id="sortearResidentes">Sortear residentes</button>
+      <button id="sortearResidentes">Sortear 3 residentes</button>
 
-      <div id="residentesSorteados" class="resultado"></div>
+      <div id="residentesSorteados" class="grid-cartas"></div>
+
+      <div id="residenteEscolhido" class="escolhido"></div>
     </section>
   </main>
 
