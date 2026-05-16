@@ -370,3 +370,16 @@ button:disabled {
 .botao-remover-aliado:hover {
   background: #7f1d1d;
 }
+
+.dado-d20 {
+  clip-path: polygon(
+    50% 0%,
+    95% 25%,
+    95% 75%,
+    50% 100%,
+    5% 75%,
+    5% 25%
+  );
+
+  background: #7c3aed;
+}
