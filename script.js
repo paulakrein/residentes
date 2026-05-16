@@ -359,8 +359,16 @@ function transformarEmAliado(index) {
 function mostrarChefesAliados() {
   chefesAliados.innerHTML = jogador.chefesAliados
     .map(
-      chefe => `
+      (chefe, index) => `
         <div class="mini-chefe-aliado">
+
+          <button
+            class="botao-remover-aliado"
+            onclick="removerChefeAliado(${index})"
+          >
+            ×
+          </button>
+
           <img src="${chefe.imagem}" alt="${chefe.nome}" />
         </div>
       `
@@ -376,4 +384,9 @@ function alterarPontuacao(valor) {
   }
 
   pontuacaoJogo.textContent = jogador.pontuacao;
+}
+
+function removerChefeAliado(index) {
+  jogador.chefesAliados.splice(index, 1);
+  mostrarChefesAliados();
 }
