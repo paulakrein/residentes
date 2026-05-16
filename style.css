@@ -1,7 +1,7 @@
 body {
   margin: 0;
-  background: #111;
-  color: #f5f5f5;
+  background: #e0e1d4;
+  color: #333;
   font-family: Arial, sans-serif;
 }
 
@@ -17,11 +17,12 @@ h1 {
 }
 
 .card {
-  background: #1b1b1b;
-  border: 1px solid #333;
+  background: #e7e6de;
+  border: 1px solid #fff8f6;
   border-radius: 14px;
   padding: 24px;
   margin-bottom: 24px;
+  outline: 1px solid #d3d0c8;
 }
 
 .hidden {
@@ -77,11 +78,12 @@ button:disabled {
 }
 
 .carta {
-  background: #252525;
-  border: 1px solid #444;
-  border-radius: 12px;
-  padding: 14px;
-  text-align: center;
+    background: #e6e4da;
+    border-radius: 12px;
+    padding: 14px;
+    text-align: center;
+    border: 1px solid #fff8f6;
+    outline: 1px solid #d3d0c8;
 }
 
 .carta img {
@@ -123,7 +125,7 @@ button:disabled {
 }
 
 .simulador-dados {
-  background: #e8eefc;
+  background: #f7f2eb;
   color: #111;
   border-radius: 12px;
   overflow: hidden;
@@ -144,7 +146,7 @@ button:disabled {
 }
 
 .total-dados {
-  background: white;
+  background: #ede7da;
   padding: 14px 18px;
   text-align: right;
   font-size: 22px;
@@ -155,8 +157,8 @@ button:disabled {
 }
 
 .controles-dados {
-  background: white;
-  border-top: 1px solid #ddd;
+  background: #ede7da;
+  border-top: 1px solid #f9f8f6;
   padding: 14px;
   display: flex;
   gap: 10px;
@@ -167,8 +169,8 @@ button:disabled {
 .dado {
   width: 92px;
   height: 92px;
-  background: #16a34a;
-  color: white;
+  background: #6c797c;
+  color: #2b2a45;
   font-size: 34px;
   font-weight: bold;
   display: grid;
