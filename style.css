@@ -6,9 +6,7 @@ body {
 }
 
 .app {
-    max-width: 100%;
     padding: 40px;
-    margin: 0 120px;
 }
 
 h1 {
