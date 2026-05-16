@@ -195,3 +195,34 @@ button:disabled {
 .dado-d8 span {
   transform: none;
 }
+.dado {
+  cursor: pointer;
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.dado:hover {
+  filter: brightness(1.15);
+  transform: translateY(-3px);
+}
+
+.dado.rolando {
+  animation: girarDado 0.45s ease-in-out;
+}
+
+@keyframes girarDado {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+
+  35% {
+    transform: rotate(160deg) scale(1.15);
+  }
+
+  70% {
+    transform: rotate(290deg) scale(0.95);
+  }
+
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}

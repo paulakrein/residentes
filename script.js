@@ -260,10 +260,26 @@ function renderizarDados() {
       const texto = resultado === null ? `d${lados}` : resultado;
 
       return `
-        <div class="dado dado-d${lados}">
+        <div class="dado dado-d${lados}" onclick="rerrolarDado(${index})">
           <span>${texto}</span>
         </div>
       `;
     })
     .join("");
+}
+
+function rerrolarDado(index) {
+  const areaDados = document.getElementById("areaDados");
+  const dadoEl = areaDados.children[index];
+
+  if (!dadoEl) return;
+
+  dadoEl.classList.add("rolando");
+
+  setTimeout(() => {
+    const lados = dadosSelecionados[index];
+    resultadosDados[index] = Math.floor(Math.random() * lados) + 1;
+
+    renderizarDados();
+  }, 450);
 }
