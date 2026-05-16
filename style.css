@@ -271,3 +271,64 @@ button:disabled {
 .botao-remover:hover {
   background: #7f1d1d;
 }
+
+.painel-lateral-residente {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.chefes-aliados {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.mini-chefe-aliado {
+  width: 90px;
+}
+
+.mini-chefe-aliado img {
+  width: 100%;
+  border-radius: 8px;
+  display: block;
+}
+
+.acoes-carta {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+
+  display: flex;
+  gap: 6px;
+}
+
+.botao-aliado,
+.botao-remover {
+  width: 28px;
+  height: 28px;
+  padding: 0;
+
+  border-radius: 50%;
+  color: white;
+  font-size: 18px;
+  line-height: 28px;
+}
+
+.botao-aliado {
+  background: #166534;
+}
+
+.botao-aliado:hover {
+  background: #22c55e;
+}
+
+.botao-remover {
+  background: #111;
+}
+
+.botao-remover:hover {
+  background: #7f1d1d;
+}

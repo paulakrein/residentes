@@ -66,7 +66,8 @@ let jogador = {
   residentesSorteados: [],
   residenteEscolhido: null,
   chefes: [],
-  taticas: []
+  taticas: [],
+  chefesAliados: []
 };
 
 const telaInicial = document.getElementById("telaInicial");
@@ -86,6 +87,7 @@ const nomeJogadorAtivo = document.getElementById("nomeJogadorAtivo");
 const pontuacaoJogo = document.getElementById("pontuacaoJogo");
 const energiaJogo = document.getElementById("energiaJogo");
 const residenteAtivo = document.getElementById("residenteAtivo");
+const chefesAliados = document.getElementById("chefesAliados");
 
 const botaoComprarChefes = document.getElementById("comprarChefes");
 const botaoComprarTaticas = document.getElementById("comprarTaticas");
@@ -204,19 +206,39 @@ function mostrarResidentes(lista) {
 
 function mostrarCartas(lista, elemento, tipoLista) {
   elemento.innerHTML = lista
-    .map(
-      (carta, index) => `
+    .map((carta, index) => {
+      const botaoAliado =
+        tipoLista === "chefes"
+          ? `
+            <button
+              class="botao-aliado"
+              onclick="transformarEmAliado(${index})"
+            >
+              ✓
+            </button>
+          `
+          : "";
+
+      return `
         <article class="carta carta-removivel">
-          <button class="botao-remover" onclick="removerCarta('${tipoLista}', ${index})">
-            ×
-          </button>
+
+          <div class="acoes-carta">
+            ${botaoAliado}
+
+            <button
+              class="botao-remover"
+              onclick="removerCarta('${tipoLista}', ${index})"
+            >
+              ×
+            </button>
+          </div>
 
           <img src="${carta.imagem}" alt="${carta.nome}" />
           <h3>${carta.nome}</h3>
           <span class="tag">${carta.tipo}</span>
         </article>
-      `
-    )
+      `;
+    })
     .join("");
 }
 
@@ -320,4 +342,28 @@ function removerCarta(tipo, index) {
     jogador.taticas.splice(index, 1);
     mostrarCartas(jogador.taticas, taticasCompradas, "taticas");
   }
+}
+
+function transformarEmAliado(index) {
+  const chefe = jogador.chefes[index];
+
+  if (!chefe) return;
+
+  jogador.chefesAliados.push(chefe);
+  jogador.chefes.splice(index, 1);
+
+  mostrarCartas(jogador.chefes, chefesComprados, "chefes");
+  mostrarChefesAliados();
+}
+
+function mostrarChefesAliados() {
+  chefesAliados.innerHTML = jogador.chefesAliados
+    .map(
+      chefe => `
+        <div class="mini-chefe-aliado">
+          <img src="${chefe.imagem}" alt="${chefe.nome}" />
+        </div>
+      `
+    )
+    .join("");
 }
