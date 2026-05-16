@@ -10,7 +10,7 @@
   <main class="app">
     <h1>Residentes</h1>
 
-    <section class="card">
+    <section id="telaInicial" class="card">
       <h2>Criar jogador</h2>
 
       <label for="nomeJogador">Nome do jogador</label>
@@ -22,19 +22,44 @@
       </div>
     </section>
 
-    <section id="painelJogo" class="card hidden">
-      <div class="topo-jogo">
-        <div>
-          <h2 id="tituloJogador">Jogador</h2>
-          <p>Pontuação: <strong id="pontuacao">0</strong></p>
-        </div>
-      </div>
+    <section id="telaEscolhaResidente" class="card hidden">
+      <h2 id="tituloJogador">Jogador</h2>
+      <p>Pontuação: <strong id="pontuacaoEscolha">0</strong></p>
 
       <button id="sortearResidentes">Sortear 3 residentes</button>
 
       <div id="residentesSorteados" class="grid-cartas"></div>
+    </section>
 
-      <div id="residenteEscolhido" class="escolhido"></div>
+    <section id="telaJogo" class="hidden">
+      <section class="card painel-status">
+        <div>
+          <h2 id="nomeJogadorAtivo">Jogador</h2>
+          <p>Pontuação: <strong id="pontuacaoJogo">0</strong></p>
+          <p>Energia: <strong id="energiaJogo">7</strong></p>
+        </div>
+
+        <div id="residenteAtivo" class="mini-carta"></div>
+      </section>
+
+      <section class="card">
+        <h2>Setup inicial</h2>
+
+        <div class="botoes">
+          <button id="comprarChefes">Comprar 2 chefes</button>
+          <button id="comprarTaticas">Comprar 3 cartas táticas</button>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Chefes em campo</h2>
+        <div id="chefesComprados" class="grid-cartas"></div>
+      </section>
+
+      <section class="card">
+        <h2>Cartas táticas na mão</h2>
+        <div id="taticasCompradas" class="grid-cartas"></div>
+      </section>
     </section>
   </main>
 

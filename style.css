@@ -6,7 +6,7 @@ body {
 }
 
 .app {
-  max-width: 1100px;
+  max-width: 1200px;
   padding: 40px;
 }
 
@@ -61,9 +61,16 @@ button:disabled {
   flex-wrap: wrap;
 }
 
+.painel-status {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+}
+
 .grid-cartas {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 20px;
   margin-top: 24px;
 }
@@ -78,21 +85,38 @@ button:disabled {
 
 .carta img {
   width: 100%;
-  max-width: 460px;
+  max-width: 260px;
   border-radius: 10px;
   display: block;
   margin: 0 auto 12px;
 }
 
 .carta h3 {
-  margin: 10px 0 14px;
+  margin: 10px 0 10px;
 }
 
-.escolhido {
-  margin-top: 28px;
+.tag {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: #444;
+  color: #ddd;
+  font-size: 12px;
+  text-transform: uppercase;
 }
 
-.carta-escolhida {
-  max-width: 480px;
-  border-color: #ddd;
+.mini-carta {
+  width: 140px;
+  text-align: center;
+}
+
+.mini-carta img {
+  width: 100%;
+  border-radius: 8px;
+  display: block;
+}
+
+.mini-carta p {
+  margin: 8px 0 0;
+  font-size: 13px;
 }
