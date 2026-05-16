@@ -6,8 +6,9 @@ body {
 }
 
 .app {
-  max-width: 1200px;
-  padding: 40px;
+    max-width: 100%;
+    padding: 40px;
+    margin: 0 120px;
 }
 
 h1 {
@@ -85,7 +86,7 @@ button:disabled {
 
 .carta img {
   width: 100%;
-  max-width: 260px;
+  max-width: 420px;
   border-radius: 10px;
   display: block;
   margin: 0 auto 12px;
