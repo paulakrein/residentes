@@ -367,3 +367,13 @@ function mostrarChefesAliados() {
     )
     .join("");
 }
+
+function alterarPontuacao(valor) {
+  jogador.pontuacao += valor;
+
+  if (jogador.pontuacao < 0) {
+    jogador.pontuacao = 0;
+  }
+
+  pontuacaoJogo.textContent = jogador.pontuacao;
+}

@@ -332,3 +332,14 @@ button:disabled {
 .botao-remover:hover {
   background: #7f1d1d;
 }
+
+.botoes-pontuacao {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.botoes-pontuacao button {
+  padding: 8px 12px;
+  font-size: 13px;
+}
