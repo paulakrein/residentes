@@ -584,3 +584,13 @@ body {
   padding: 0;
   line-height: 1;
 }
+
+.small-group {
+  gap: 1%;
+}
+
+.small-btn {
+  width: 4vw;
+  max-width: 18px;
+  font-size: clamp(14px, 3vw, 20px);
+}

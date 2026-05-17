@@ -30,6 +30,15 @@ const playerEnergyMinus = document.getElementById("playerEnergyMinus");
 const opponentEnergyPlus = document.getElementById("opponentEnergyPlus");
 const opponentEnergyMinus = document.getElementById("opponentEnergyMinus");
 
+const playerScore = document.getElementById("playerScore");
+const opponentScore = document.getElementById("opponentScore");
+
+const playerScorePlus = document.getElementById("playerScorePlus");
+const playerScoreMinus = document.getElementById("playerScoreMinus");
+
+const opponentScorePlus = document.getElementById("opponentScorePlus");
+const opponentScoreMinus = document.getElementById("opponentScoreMinus");
+
 let previewResident = null;
 
 let playerName = "";
@@ -403,3 +412,33 @@ opponentEnergyMinus.addEventListener("click", () => {
 });
 
 updateEnergyDisplays();
+
+let playerScoreValue = 0;
+let opponentScoreValue = 0;
+
+function updateScoreDisplays() {
+  playerScore.textContent = playerScoreValue;
+  opponentScore.textContent = opponentScoreValue;
+}
+
+playerScorePlus.addEventListener("click", () => {
+  playerScoreValue++;
+  updateScoreDisplays();
+});
+
+playerScoreMinus.addEventListener("click", () => {
+  playerScoreValue = Math.max(0, playerScoreValue - 1);
+  updateScoreDisplays();
+});
+
+opponentScorePlus.addEventListener("click", () => {
+  opponentScoreValue++;
+  updateScoreDisplays();
+});
+
+opponentScoreMinus.addEventListener("click", () => {
+  opponentScoreValue = Math.max(0, opponentScoreValue - 1);
+  updateScoreDisplays();
+});
+
+updateScoreDisplays();
