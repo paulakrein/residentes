@@ -1,5 +1,7 @@
 // Custom Components
 
+let currentAttributeNoteIndex = 0;
+
 class DiceObject extends HTMLElement {
 	constructor() {
 		super();
