@@ -138,14 +138,14 @@ body {
 .modifier-slot {
   position: absolute;
   top: 5%;
-  width: 20%;
+  width: 18%;
   aspect-ratio: 2 / 3;
   border: 2px solid #888;
   background: white;
 }
 
 .boss-slot {
-  right: 21%;
+  right: 22%;
 }
 
 .modifier-slot {
@@ -437,13 +437,13 @@ body {
 
 .deck-zone {
   position: absolute;
-  width: 20%;
+  width: 18%;
   aspect-ratio: 2 / 3;
   z-index: 2;
 }
 
 .boss-deck-zone {
-  right: 24%;
+  right: 22%;
   top: 5%;
 }
 
