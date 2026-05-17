@@ -41,6 +41,11 @@ const opponentScoreMinus = document.getElementById("opponentScoreMinus");
 
 const playerNameDisplay = document.getElementById("playerNameDisplay");
 
+const startTurnButton = document.getElementById("startTurnButton");
+
+const battleModal = document.getElementById("battleModal");
+const battleModalClose = document.getElementById("battleModalClose");
+
 let previewResident = null;
 
 let playerName = "";
@@ -50,6 +55,9 @@ let opponentResident = null;
 
 let playerTacticHand = [];
 let playerBossHand = [];
+
+let isChoosingBossForBattle = false;
+let selectedBossForBattle = null;
 
 const TOTAL_RESIDENTS = 32;
 
@@ -286,16 +294,36 @@ function renderTacticDrawPile() {
   `;
 }
 
-function openCardModal(src) {
+function openCardModal(src, options = {}) {
   if (!src) return;
 
   cardModalImg.src = src;
   cardModal.classList.add("active");
+
+  const oldBattleButton = cardModal.querySelector(".battle-button");
+  if (oldBattleButton) oldBattleButton.remove();
+
+  if (options.showBattleButton) {
+    const battleButton = document.createElement("button");
+    battleButton.className = "battle-button";
+    battleButton.textContent = "BATALHAR";
+
+    battleButton.addEventListener("click", () => {
+      closeCardModal();
+      battleModal.classList.add("active");
+      isChoosingBossForBattle = false;
+    });
+
+    cardModal.appendChild(battleButton);
+  }
 }
 
 function closeCardModal() {
   cardModal.classList.remove("active");
   cardModalImg.src = "";
+
+  const oldBattleButton = cardModal.querySelector(".battle-button");
+  if (oldBattleButton) oldBattleButton.remove();
 }
 
 cardModalClose.addEventListener("click", closeCardModal);
@@ -346,7 +374,13 @@ function renderPlayerTacticHand() {
 
     slot.appendChild(img);
 
-    slot.onclick = () => openCardModal(card.face);
+    slot.onclick = () => {
+      selectedBossForBattle = card;
+
+      openCardModal(card.face, {
+        showBattleButton: isChoosingBossForBattle,
+      });
+    };
   });
 }
 
@@ -458,3 +492,13 @@ function attachAvatarModals() {
     openCardModal(residentCardPath(opponentResident));
   };
 }
+
+startTurnButton.addEventListener("click", () => {
+  isChoosingBossForBattle = true;
+  selectedBossForBattle = null;
+  alert("Escolha um chefe para batalhar.");
+});
+
+battleModalClose.addEventListener("click", () => {
+  battleModal.classList.remove("active");
+});
