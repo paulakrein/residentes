@@ -20,7 +20,6 @@ const cardModalClose = document.getElementById("cardModalClose");
 
 const bossDrawPile = document.getElementById("bossDrawPile");
 const playerHandCards = document.querySelectorAll(".player-hand .card");
-const playerBossCards = [playerBoss1, playerBoss2];
 
 let previewResident = null;
 
@@ -132,6 +131,9 @@ const opponentBoss2 = document.getElementById("opponentBoss2");
 const playerBoss1 = document.getElementById("playerBoss1");
 const playerBoss2 = document.getElementById("playerBoss2");
 
+const playerBossCards = [playerBoss1, playerBoss2];
+
+
 const opponentHandCards = document.querySelectorAll(".opponent-hand .card");
 
 const TOTAL_BOSSES = 36;
@@ -152,17 +154,20 @@ function tacticBackPath(type) {
 }
 
 function drawBosses() {
-  playerBossHand = [bossDeck.shift(), bossDeck.shift()];
-  renderPlayerBossHand();
+  const bosses = shuffle(
+    Array.from({ length: TOTAL_BOSSES }, (_, index) => index + 1)
+  );
 
-  const opponentBossA = bossDeck.shift();
-  const opponentBossB = bossDeck.shift();
+  playerBoss1.src = bossPath(bosses[0]);
+  playerBoss2.src = bossPath(bosses[1]);
 
-  opponentBoss1.src = opponentBossA.face;
-  opponentBoss2.src = opponentBossB.face;
+  opponentBoss1.src = bossPath(bosses[2]);
+  opponentBoss2.src = bossPath(bosses[3]);
 
-  opponentBoss1.onclick = () => openCardModal(opponentBossA.face);
-  opponentBoss2.onclick = () => openCardModal(opponentBossB.face);
+  [playerBoss1, playerBoss2, opponentBoss1, opponentBoss2].forEach((bossCard) => {
+    bossCard.onclick = () => openCardModal(bossCard.src);
+  });
+
 }
 
 function drawRandomTactic() {
