@@ -538,7 +538,7 @@ body {
   inset: 0;
   display: none;
   background: rgba(40, 40, 40, 0.68);
-  z-index: 30;
+  z-index: 100;
 }
 
 .card-modal.active {
@@ -555,7 +555,7 @@ body {
   font-size: clamp(48px, 12vw, 76px);
   line-height: 1;
   cursor: pointer;
-  z-index: 2;
+  z-index: 101;
 }
 
 .card-modal-img {
@@ -567,6 +567,7 @@ body {
   transform: translateX(-50%);
   object-fit: contain;
   border-radius: 6%;
+  z-index: 101;
 }
 
 .counter-group {
@@ -651,6 +652,7 @@ body {
   font-size: clamp(16px, 4.5vw, 24px);
   font-weight: bold;
   cursor: pointer;
+  z-index: 101;
 }
 
 /* MODAL DE BATALHA */
