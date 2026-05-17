@@ -214,3 +214,26 @@ body {
   height: 5%;
   background: #737373;
 }
+
+.ally-card {
+  position: absolute;
+  width: 11%;
+  aspect-ratio: 2 / 3;
+  border: 1.5px solid #777;
+  background: #d9ad75;
+  z-index: 2;
+}
+
+.opponent-ally {
+  left: 4%;
+  top: 63%;
+}
+
+.player-ally {
+  left: 4%;
+  bottom: 78%;
+}
+
+.ally-card {
+  width: 12.5%;
+}
