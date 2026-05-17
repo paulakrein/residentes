@@ -50,6 +50,7 @@ const battlePlayerAvatarImg = document.getElementById("battlePlayerAvatarImg");
 const battlePlayerHand = document.getElementById("battlePlayerHand");
 
 const battleBossCard = document.getElementById("battleBossCard");
+const playerAllySlot = document.getElementById("playerAllySlot");
 
 let previewResident = null;
 
@@ -63,6 +64,9 @@ let playerBossHand = [];
 
 let isChoosingBossForBattle = false;
 let selectedBossForBattle = null;
+
+let selectedBossForBattleIndex = null;
+let playerAllyBoss = null;
 
 const TOTAL_RESIDENTS = 32;
 
@@ -302,8 +306,13 @@ function renderTacticDrawPile() {
 function renderBattlePlayerArea() {
   if (selectedBossForBattle) {
     battleBossCard.src = selectedBossForBattle.face;
-    battleBossCard.onclick = () => openCardModal(selectedBossForBattle.face);
+
+    battleBossCard.onclick = () => openCardModal(selectedBossForBattle.face, {
+      showAllyButton: true,
+      allySourceIndex: selectedBossForBattleIndex,
+    });
   }
+
   battlePlayerAvatarImg.src = playerAvatarImg.src;
 
   battlePlayerAvatarImg.onclick = () => {
@@ -341,6 +350,9 @@ function openCardModal(src, options = {}) {
   const oldDiscardButton = cardModal.querySelector(".discard-button");
   if (oldDiscardButton) oldDiscardButton.remove();
 
+  const oldAllyButton = cardModal.querySelector(".ally-button");
+  if (oldAllyButton) oldAllyButton.remove();
+
   if (options.showBattleButton) {
     const battleButton = document.createElement("button");
     battleButton.className = "battle-button";
@@ -355,6 +367,38 @@ function openCardModal(src, options = {}) {
 
     cardModal.appendChild(battleButton);
   }
+
+  if (options.showAllyButton) {
+    const allyButton = document.createElement("button");
+    allyButton.className = "ally-button";
+    allyButton.textContent = "TORNAR ALIADO";
+
+    allyButton.addEventListener("click", () => {
+      if (playerAllyBoss) {
+        alert("Você já tem um chefe aliado.");
+        return;
+      }
+
+      const alliedBoss = playerBossHand.splice(options.allySourceIndex, 1)[0];
+      if (!alliedBoss) return;
+
+      playerAllyBoss = alliedBoss;
+
+      selectedBossForBattle = null;
+      selectedBossForBattleIndex = null;
+
+      renderPlayerBossHand();
+      renderPlayerAllyBoss();
+
+      battleBossCard.removeAttribute("src");
+      battleBossCard.onclick = null;
+
+      closeCardModal();
+    });
+
+    cardModal.appendChild(allyButton);
+  }
+
   if (options.showDiscardButton) {
     const discardButton = document.createElement("button");
     discardButton.className = "discard-button";
@@ -371,7 +415,15 @@ function openCardModal(src, options = {}) {
 
       if (options.discardType === "boss") {
         const discardedCard = playerBossHand.splice(options.cardIndex, 1)[0];
-        if (discardedCard) bossDiscard.push(discardedCard);
+
+        if (discardedCard) {
+          bossDiscard.push(discardedCard);
+
+          if (selectedBossForBattle === discardedCard) {
+            selectedBossForBattle = null;
+            selectedBossForBattleIndex = null;
+          }
+        }
 
         renderPlayerBossHand();
       }
@@ -393,6 +445,9 @@ function closeCardModal() {
 
   const oldDiscardButton = cardModal.querySelector(".discard-button");
   if (oldDiscardButton) oldDiscardButton.remove();
+
+  const oldAllyButton = cardModal.querySelector(".ally-button");
+  if (oldAllyButton) oldAllyButton.remove();
 }
 
 cardModalClose.addEventListener("click", closeCardModal);
@@ -470,6 +525,26 @@ function drawFromBossDeck() {
   renderPlayerBossHand();
 }
 
+function renderPlayerAllyBoss() {
+  playerAllySlot.innerHTML = "";
+
+  if (!playerAllyBoss) {
+    playerAllySlot.classList.remove("has-ally");
+    playerAllySlot.onclick = null;
+    return;
+  }
+
+  playerAllySlot.classList.add("has-ally");
+
+  const img = document.createElement("img");
+  img.src = playerAllyBoss.face;
+  img.alt = `chefe-aliado-${padNumber(playerAllyBoss.id)}`;
+
+  playerAllySlot.appendChild(img);
+
+  playerAllySlot.onclick = () => openCardModal(playerAllyBoss.face);
+}
+
 function renderPlayerBossHand() {
   playerBossCards.forEach((slot, index) => {
     const card = playerBossHand[index];
@@ -486,6 +561,7 @@ function renderPlayerBossHand() {
 
     slot.onclick = () => {
       selectedBossForBattle = card;
+      selectedBossForBattleIndex = index;
 
       openCardModal(card.face, {
         showBattleButton: isChoosingBossForBattle,
