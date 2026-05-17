@@ -581,3 +581,14 @@ startTurnButton.addEventListener("click", () => {
 battleModalClose.addEventListener("click", () => {
   battleModal.classList.remove("active");
 });
+
+document
+  .getElementById("clearAttributeNotes")
+  .addEventListener("click", () => {
+
+    document.querySelectorAll(".attribute-note").forEach((note) => {
+      note.textContent = "0";
+    });
+
+    currentAttributeNoteIndex = 0;
+  });
