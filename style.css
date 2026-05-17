@@ -965,3 +965,9 @@ dice-object .die:hover {
   padding: 7px 22px;
   user-select: none;
 }
+
+.energy-icon {
+  position: absolute;
+  width: 30px;
+  left: -15px;
+}
