@@ -101,7 +101,7 @@ body {
   position: absolute;
   top: 37%;
   left: 50%;
-  width: 58%;
+  width: 70%;
   height: 42%;
   transform: translateX(-50%);
 }
@@ -138,7 +138,7 @@ body {
 .modifier-slot {
   position: absolute;
   top: 5%;
-  width: 16%;
+  width: 20%;
   aspect-ratio: 2 / 3;
   border: 2px solid #888;
   background: white;
@@ -437,13 +437,13 @@ body {
 
 .deck-zone {
   position: absolute;
-  width: 16%;
+  width: 20%;
   aspect-ratio: 2 / 3;
   z-index: 2;
 }
 
 .boss-deck-zone {
-  right: 21%;
+  right: 24%;
   top: 5%;
 }
 
