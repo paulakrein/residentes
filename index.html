@@ -7,109 +7,51 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <main class="app">
-    <h1>Residentes</h1>
+  <main class="game-screen">
 
-    <section id="telaInicial" class="card">
-      <h2>Criar jogador</h2>
+    <section class="opponent-area">
+      <div class="settings-button">⚙</div>
 
-      <label for="nomeJogador">Nome do jogador</label>
-      <input id="nomeJogador" type="text" placeholder="Digite o nome" />
+      <div class="opponent-avatar"></div>
 
-      <div class="botoes">
-        <button id="criarJogador">Criar jogador</button>
-        <button id="iniciarJogo" disabled>Iniciar jogo</button>
+      <div class="opponent-counters">
+        <div class="counter">0</div>
+        <div class="counter small">0</div>
+      </div>
+
+      <div class="opponent-hand">
+        <div class="card tilted t1"></div>
+        <div class="card tilted t2"></div>
+        <div class="card tilted t3"></div>
+        <div class="card tilted t4"></div>
+        <div class="card tilted t5"></div>
       </div>
     </section>
 
-    <section id="telaEscolhaResidente" class="card hidden">
-      <h2 id="tituloJogador">Jogador</h2>
-      <p>Pontuação: <strong id="pontuacaoEscolha">0</strong></p>
-
-      <button id="sortearResidentes">Sortear 3 residentes</button>
-
-      <div id="residentesSorteados" class="grid-cartas"></div>
+    <section class="center-area">
+      <div class="boss-slot"></div>
+      <div class="modifier-slot"></div>
     </section>
 
-    <section id="telaJogo" class="hidden">
-      <section class="card painel-status">
-        <div>
-          <h2 id="nomeJogadorAtivo">Jogador</h2>
-          <p>Pontuação: <strong id="pontuacaoJogo">0</strong></p>
-          <div class="botoes-pontuacao">
-            <button onclick="alterarPontuacao(1)">+1 ponto</button>
-            <button onclick="alterarPontuacao(-1)">−1 ponto</button>
-          </div>
-          <p>Energia: <strong id="energiaJogo">7</strong></p>
-          <div class="botoes-energia">
-            <button onclick="alterarEnergia(1)">+ energia</button>
-            <button onclick="alterarEnergia(-1)">− energia</button>
-          </div>
-        </div>
+    <section class="player-area">
+      <div class="player-hand">
+        <div class="card fan f1"></div>
+        <div class="card fan f2"></div>
+        <div class="card fan f3"></div>
+        <div class="card fan f4"></div>
+        <div class="card fan f5"></div>
+        <div class="card fan f6"></div>
+      </div>
 
-        <div class="painel-lateral-residente">
-          <div id="residenteAtivo" class="mini-carta"></div>
+      <div class="player-avatar"></div>
 
-          <div>
-            <h3>Chefes aliados</h3>
-            <div id="chefesAliados" class="chefes-aliados"></div>
-          </div>
-        </div>
-      </section>
-
-      <section class="card">
-        <h2>Setup inicial</h2>
-
-        <div class="botoes">
-          <button id="comprarChefes">Comprar 2 chefes</button>
-          <button id="comprarTaticas">Comprar 3 cartas táticas</button>
-        </div>
-      </section>
-
-      <section class="card">
-        <div class="cabecalho-secao">
-          <h2>Chefes em campo</h2>
-          <button onclick="comprarNovoChefe()">Sortear novo chefe</button>
-        </div>
-
-        <div id="chefesComprados" class="grid-cartas"></div>
-      </section>
-
-      <section class="card">
-        <div class="cabecalho-secao">
-          <h2>Cartas táticas na mão</h2>
-          <button onclick="comprarNovaTatica()">Sortear nova carta tática</button>
-        </div>
-
-        <div id="taticasCompradas" class="grid-cartas"></div>
-      </section>
-      
-      <section class="card">
-        <h2>Jogar os dados</h2>
-
-        <div class="simulador-dados">
-          <div id="areaDados" class="area-dados">
-            <p class="placeholder-dados">Escolha dados e clique em rolar.</p>
-          </div>
-
-          <div class="total-dados">
-            Total: <strong id="totalDados">0</strong>
-          </div>
-
-          <div class="controles-dados">
-            <button onclick="adicionarDado(4)">d4</button>
-            <button onclick="adicionarDado(6)">d6</button>
-            <button onclick="adicionarDado(8)">d8</button>
-            <button onclick="adicionarDado(20)">d20</button>
-            <button onclick="rolarDados()">Rolar</button>
-            <button onclick="limparDados()">Limpar</button>
-          </div>
-        </div>
-      </section>
-
+      <div class="player-counters">
+        <div class="counter">0</div>
+        <div class="counter small">0</div>
+      </div>
     </section>
 
-    
+    <footer class="bottom-bar"></footer>
 
   </main>
 

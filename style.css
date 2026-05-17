@@ -1,383 +1,215 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
 body {
   margin: 0;
-  background: #e0e1d4;
-  color: #333;
-  font-family: Arial, sans-serif;
-}
-
-.app {
-    padding: 40px;
-}
-
-h1 {
-  margin-bottom: 28px;
-  font-size: 36px;
-}
-
-.card {
-  background: #e7e6de;
-  border: 1px solid #fff8f6;
-  border-radius: 14px;
-  padding: 24px;
-  margin-bottom: 24px;
-  outline: 1px solid #d3d0c8;
-}
-
-.hidden {
-  display: none;
-}
-
-label {
-  display: block;
-  margin-bottom: 8px;
-}
-
-input {
   width: 100%;
-  max-width: 360px;
-  padding: 12px;
-  margin-bottom: 14px;
-  font-size: 16px;
-  border-radius: 6px;
-  border: 1px solid #555;
+  height: 100%;
+  background: #ffffff;
+  overflow: hidden;
+  font-family: Georgia, serif;
 }
 
-button {
-  padding: 12px 18px;
-  font-size: 15px;
-  border: 0;
-  border-radius: 6px;
-  cursor: pointer;
-}
-
-button:disabled {
-  opacity: 0.45;
-  cursor: not-allowed;
-}
-
-.botoes {
+body {
   display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
 }
 
-.painel-status {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 24px;
-}
-
-.grid-cartas {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
-  margin-top: 24px;
-}
-
-.carta {
-    background: #e6e4da;
-    border-radius: 12px;
-    padding: 14px;
-    text-align: center;
-    border: 1px solid #fff8f6;
-    outline: 1px solid #d3d0c8;
-}
-
-.carta img {
-  width: 100%;
-  max-width: 420px;
-  border-radius: 10px;
-  display: block;
-  margin: 0 auto 12px;
-}
-
-.carta h3 {
-  margin: 10px 0 10px;
-}
-
-.tag {
-  display: inline-block;
-  padding: 4px 8px;
-  border-radius: 999px;
-  background: #444;
-  color: #ddd;
-  font-size: 12px;
-  text-transform: uppercase;
-}
-
-.mini-carta {
-  width: 400px;
-  text-align: center;
-}
-
-.mini-carta img {
-  width: 100%;
-  border-radius: 8px;
-  display: block;
-}
-
-.mini-carta p {
-  margin: 8px 0 0;
-  font-size: 13px;
-}
-
-.simulador-dados {
-  background: #f7f2eb;
-  color: #111;
-  border-radius: 12px;
+.game-screen {
+  position: relative;
+  width: min(100vw, calc(100vh * 9 / 16));
+  height: min(100vh, calc(100vw * 16 / 9));
+  background: #ded6c5;
+  border: 1px solid #d7bfa8;
   overflow: hidden;
 }
 
-.area-dados {
-  min-height: 220px;
-  padding: 28px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 28px;
-  flex-wrap: wrap;
+/* ÁREA SUPERIOR */
+
+.opponent-area {
+  position: absolute;
+  top: 2%;
+  left: 0;
+  width: 100%;
+  height: 27%;
 }
 
-.placeholder-dados {
-  color: #555;
-}
-
-.total-dados {
-  background: #ede7da;
-  padding: 14px 18px;
-  text-align: right;
-  font-size: 22px;
-}
-
-.total-dados strong {
-  font-size: 42px;
-}
-
-.controles-dados {
-  background: #ede7da;
-  border-top: 1px solid #f9f8f6;
-  padding: 14px;
-  display: flex;
-  gap: 10px;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.dado {
-  width: 92px;
-  height: 92px;
-  background: #6c797c;
-  color: #2b2a45;
-  font-size: 34px;
-  font-weight: bold;
+.settings-button {
+  position: absolute;
+  top: 2%;
+  left: 4%;
+  width: 11%;
+  aspect-ratio: 1;
+  border: 2px solid #777;
+  border-radius: 50%;
+  background: white;
   display: grid;
   place-items: center;
+  font-size: clamp(16px, 5vw, 28px);
 }
 
-.dado-d4 {
-  clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+.opponent-avatar {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 27%;
+  aspect-ratio: 1;
+  transform: translateX(-50%);
+  border: 2px solid #777;
+  border-radius: 50%;
+  background: white;
+  z-index: 3;
 }
 
-.dado-d6 {
-  border-radius: 12px;
-}
-
-.dado-d8 {
-  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
-}
-
-.dado span {
-  transform: translateY(8px);
-}
-
-.dado-d6 span,
-.dado-d8 span {
-  transform: none;
-}
-.dado {
-  cursor: pointer;
-  transition: transform 0.2s ease, filter 0.2s ease;
-}
-
-.dado:hover {
-  filter: brightness(1.15);
-  transform: translateY(-3px);
-}
-
-.dado.rolando {
-  animation: girarDado 0.45s ease-in-out;
-}
-
-@keyframes girarDado {
-  0% {
-    transform: rotate(0deg) scale(1);
-  }
-
-  35% {
-    transform: rotate(160deg) scale(1.15);
-  }
-
-  70% {
-    transform: rotate(290deg) scale(0.95);
-  }
-
-  100% {
-    transform: rotate(360deg) scale(1);
-  }
-}
-
-.botoes-energia {
+.opponent-counters {
+  position: absolute;
+  top: 1%;
+  right: 7%;
   display: flex;
-  gap: 8px;
-  margin-top: 10px;
-}
-
-.botoes-energia button {
-  padding: 8px 12px;
-  font-size: 13px;
-}
-
-.cabecalho-secao {
-  display: flex;
+  gap: 10%;
   align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  flex-wrap: wrap;
 }
 
-.carta-removivel {
-  position: relative;
-}
-
-.botao-remover {
-  position: absolute;
-  top: 8px;
-  right: 8px;
-
-  width: 28px;
-  height: 28px;
-  padding: 0;
-
+.counter {
+  width: 13vw;
+  max-width: 60px;
+  aspect-ratio: 1;
+  border: 2px solid #777;
   border-radius: 50%;
-  background: #111;
-  color: white;
-  font-size: 20px;
-  line-height: 28px;
+  background: white;
+  display: grid;
+  place-items: center;
+  font-size: clamp(20px, 7vw, 36px);
+  font-weight: bold;
 }
 
-.botao-remover:hover {
-  background: #7f1d1d;
+.counter.small {
+  width: 9vw;
+  max-width: 42px;
+  font-size: clamp(16px, 5vw, 26px);
 }
 
-.painel-lateral-residente {
-  display: flex;
-  gap: 24px;
-  align-items: flex-start;
-  flex-wrap: wrap;
+.opponent-hand {
+  position: absolute;
+  top: 37%;
+  left: 50%;
+  width: 58%;
+  height: 42%;
+  transform: translateX(-50%);
 }
 
-.chefes-aliados {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  margin-top: 10px;
+.card {
+  position: absolute;
+  width: 19%;
+  aspect-ratio: 2 / 3;
+  border: 1.5px solid #777;
+  background: #fafafa;
 }
 
-.mini-chefe-aliado {
-  width: 320px;
+.tilted {
+  bottom: 0;
+  transform-origin: top center;
 }
 
-.mini-chefe-aliado img {
+.t1 { left: 3%; transform: rotate(15deg); }
+.t2 { left: 21%; transform: rotate(8deg); }
+.t3 { left: 40%; transform: rotate(0deg); }
+.t4 { left: 59%; transform: rotate(-8deg); }
+.t5 { left: 77%; transform: rotate(-15deg); }
+
+/* CENTRO */
+
+.center-area {
+  position: absolute;
+  top: 38%;
+  left: 0;
   width: 100%;
-  border-radius: 8px;
-  display: block;
+  height: 26%;
 }
 
-.acoes-carta {
+.boss-slot,
+.modifier-slot {
   position: absolute;
-  top: 8px;
-  right: 8px;
-
-  display: flex;
-  gap: 6px;
+  top: 5%;
+  width: 16%;
+  aspect-ratio: 2 / 3;
+  border: 2px solid #888;
+  background: white;
 }
 
-.botao-aliado,
-.botao-remover {
-  width: 28px;
-  height: 28px;
-  padding: 0;
-
-  border-radius: 50%;
-  color: white;
-  font-size: 18px;
-  line-height: 28px;
+.boss-slot {
+  right: 21%;
 }
 
-.botao-aliado {
-  background: #166534;
+.modifier-slot {
+  right: 3%;
 }
 
-.botao-aliado:hover {
-  background: #22c55e;
-}
+/* ÁREA INFERIOR */
 
-.botao-remover {
-  background: #111;
-}
-
-.botao-remover:hover {
-  background: #7f1d1d;
-}
-
-.botoes-pontuacao {
-  display: flex;
-  gap: 8px;
-  margin-top: 10px;
-}
-
-.botoes-pontuacao button {
-  padding: 8px 12px;
-  font-size: 13px;
-}
-
-.mini-chefe-aliado {
-  position: relative;
-}
-
-.botao-remover-aliado {
+.player-area {
   position: absolute;
-  top: -6px;
-  right: -6px;
+  bottom: 4%;
+  left: 0;
+  width: 100%;
+  height: 34%;
+}
 
-  width: 24px;
-  height: 24px;
-  padding: 0;
+.player-hand {
+  position: absolute;
+  bottom: 20%;
+  left: 50%;
+  width: 120%;
+  height: 76%;
+  transform: translateX(-50%);
+}
 
+.fan {
+  bottom: 0;
+  width: 20%;
+  transform-origin: bottom center;
+}
+
+.f1 { left: 6%; transform: rotate(-16deg); }
+.f2 { left: 22%; transform: rotate(-9deg); }
+.f3 { left: 38%; transform: rotate(-3deg); }
+.f4 { left: 54%; transform: rotate(4deg); }
+.f5 { left: 70%; transform: rotate(10deg); }
+.f6 { left: 86%; transform: rotate(16deg); }
+
+.player-avatar {
+  position: absolute;
+  bottom: 1%;
+  left: 50%;
+  width: 26%;
+  aspect-ratio: 1;
+  transform: translateX(-50%);
+  border: 2px solid #777;
   border-radius: 50%;
-  background: #111;
-  color: white;
-
-  font-size: 16px;
-  line-height: 24px;
-
-  z-index: 2;
+  background: white;
+  z-index: 4;
 }
 
-.botao-remover-aliado:hover {
-  background: #7f1d1d;
+.player-counters {
+  position: absolute;
+  right: 4%;
+  bottom: 1%;
+  display: flex;
+  gap: 10%;
+  align-items: center;
+  z-index: 5;
 }
 
-.dado-d20 {
-  clip-path: polygon(
-    50% 0%,
-    95% 25%,
-    95% 75%,
-    50% 100%,
-    5% 75%,
-    5% 25%
-  );
+/* BARRA INFERIOR */
 
-  background: #7c3aed;
+.bottom-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 5%;
+  background: #737373;
 }
