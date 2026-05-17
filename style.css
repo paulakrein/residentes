@@ -630,12 +630,12 @@ position: absolute;
 .turn-button {
     position: absolute;
     left: 3%;
-    height: 83%;
-    padding: 0 5%;
+    height: 75%;
+    padding: 0 3%;
     background: #333;
     color: #aab7b0;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 20px;
+    font-size: 16px;
     font-weight: bold;
     cursor: pointer;
     border: 1px solid #555;
