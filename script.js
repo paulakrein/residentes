@@ -338,6 +338,24 @@ function renderBattlePlayerArea() {
   });
 }
 
+function resetBattleModal() {
+  document.getElementById("table-top").innerHTML = "";
+  document.getElementById("roll").setAttribute("disabled", "");
+
+  document.querySelectorAll(".attribute-note").forEach((note) => {
+    note.textContent = "0";
+  });
+
+  currentAttributeNoteIndex = 0;
+
+  battlePlayerHand.innerHTML = "";
+  battleBossCard.removeAttribute("src");
+  battleBossCard.onclick = null;
+
+  selectedBossForBattle = null;
+  selectedBossForBattleIndex = null;
+}
+
 function openCardModal(src, options = {}) {
   if (!src) return;
 
@@ -394,6 +412,9 @@ function openCardModal(src, options = {}) {
       battleBossCard.onclick = null;
 
       closeCardModal();
+
+      battleModal.classList.remove("active");
+      resetBattleModal();
     });
 
     cardModal.appendChild(allyButton);
@@ -656,6 +677,7 @@ startTurnButton.addEventListener("click", () => {
 
 battleModalClose.addEventListener("click", () => {
   battleModal.classList.remove("active");
+  resetBattleModal();
 });
 
 document
