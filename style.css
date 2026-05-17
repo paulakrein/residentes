@@ -22,7 +22,7 @@ body {
   position: relative;
   width: min(100vw, calc(100vh * 9 / 16));
   height: min(100vh, calc(100vw * 16 / 9));
-  background: #ded6c5;
+  background: url(assets/cartas/bg/wood3.png);
   border: 1px solid #d7bfa8;
   overflow: hidden;
 }
@@ -197,7 +197,7 @@ body {
   border-radius: 50%;
   background: white;
   z-index: 4;
-  
+
   border: 4px solid #AAB7B0;
   outline: 2px solid #83938F;
 }
