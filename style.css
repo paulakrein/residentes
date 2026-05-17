@@ -811,11 +811,12 @@ dice-icon .icon {
   color: #fff;
   font-weight: bold;
   display: grid;
-  padding: 18px 0;
+  padding: 18px;
   place-content: center;
   position: relative;
   user-select: none;
   width: 40px;
+  height: 55px;
 }
 
 dice-icon svg {
@@ -833,7 +834,7 @@ dice-icon[sides="6"] svg {
 
 dice-icon[sides="4"] .icon {
   padding-bottom: 7px;
-  padding-top: 18px;
+  padding-top: 9px;
 }
 
 dice-icon[sides="4"] svg {
