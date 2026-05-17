@@ -419,8 +419,12 @@ body {
 
 /* MÃO DO JOGADOR OCULTA POR ENQUANTO */
 
-.player-hand {
+.player-hand .card {
   visibility: hidden;
+}
+
+.player-hand .card.has-card {
+  visibility: visible;
 }
 
 /* DECKS DE SAQUE E DESCARTE */

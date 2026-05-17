@@ -18,12 +18,19 @@ const cardModal = document.getElementById("cardModal");
 const cardModalImg = document.getElementById("cardModalImg");
 const cardModalClose = document.getElementById("cardModalClose");
 
+const bossDrawPile = document.getElementById("bossDrawPile");
+const playerHandCards = document.querySelectorAll(".player-hand .card");
+const playerBossCards = [playerBoss1, playerBoss2];
+
 let previewResident = null;
 
 let playerName = "";
 let offeredResidents = [];
 let chosenResident = null;
 let opponentResident = null;
+
+let playerTacticHand = [];
+let playerBossHand = [];
 
 const TOTAL_RESIDENTS = 32;
 
@@ -145,20 +152,17 @@ function tacticBackPath(type) {
 }
 
 function drawBosses() {
-  const bosses = shuffle(
-    Array.from({ length: TOTAL_BOSSES }, (_, index) => index + 1)
-  );
+  playerBossHand = [bossDeck.shift(), bossDeck.shift()];
+  renderPlayerBossHand();
 
-  playerBoss1.src = bossPath(bosses[0]);
-  playerBoss2.src = bossPath(bosses[1]);
+  const opponentBossA = bossDeck.shift();
+  const opponentBossB = bossDeck.shift();
 
-  opponentBoss1.src = bossPath(bosses[2]);
-  opponentBoss2.src = bossPath(bosses[3]);
+  opponentBoss1.src = opponentBossA.face;
+  opponentBoss2.src = opponentBossB.face;
 
-  [playerBoss1, playerBoss2, opponentBoss1, opponentBoss2].forEach((bossCard) => {
-    bossCard.onclick = () => openCardModal(bossCard.src);
-  });
-
+  opponentBoss1.onclick = () => openCardModal(opponentBossA.face);
+  opponentBoss2.onclick = () => openCardModal(opponentBossB.face);
 }
 
 function drawRandomTactic() {
@@ -277,3 +281,84 @@ cardModal.addEventListener("click", (event) => {
     closeCardModal();
   }
 });
+
+function drawFromTacticDeck() {
+  if (playerTacticHand.length >= 6) {
+    alert("Você não pode comprar mais de 6 cartas táticas.");
+    return;
+  }
+
+  if (tacticDeck.length === 0) {
+    tacticDeck = shuffle(tacticDiscard);
+    tacticDiscard = [];
+  }
+
+  if (tacticDeck.length === 0) return;
+
+  const card = tacticDeck.shift();
+  playerTacticHand.push(card);
+
+  renderPlayerTacticHand();
+  renderTacticDrawPile();
+}
+
+function renderPlayerTacticHand() {
+  playerHandCards.forEach((slot, index) => {
+    slot.innerHTML = "";
+
+    const card = playerTacticHand[index];
+
+    if (!card) {
+      slot.classList.remove("has-card");
+      slot.onclick = null;
+      return;
+    }
+
+    slot.classList.add("has-card");
+
+    const img = document.createElement("img");
+    img.src = card.face;
+    img.alt = `${card.type}-${padNumber(card.id)}`;
+
+    slot.appendChild(img);
+
+    slot.onclick = () => openCardModal(card.face);
+  });
+}
+
+function drawFromBossDeck() {
+  if (playerBossHand.length >= 2) {
+    alert("Você não pode comprar mais de 2 cartas chefe.");
+    return;
+  }
+
+  if (bossDeck.length === 0) {
+    bossDeck = shuffle(bossDiscard);
+    bossDiscard = [];
+  }
+
+  if (bossDeck.length === 0) return;
+
+  const card = bossDeck.shift();
+  playerBossHand.push(card);
+
+  renderPlayerBossHand();
+}
+
+function renderPlayerBossHand() {
+  playerBossCards.forEach((slot, index) => {
+    const card = playerBossHand[index];
+
+    if (!card) {
+      slot.removeAttribute("src");
+      slot.onclick = null;
+      return;
+    }
+
+    slot.src = card.face;
+    slot.onclick = () => openCardModal(card.face);
+  });
+}
+
+tacticDrawPile.addEventListener("click", drawFromTacticDeck);
+bossDrawPile.addEventListener("click", drawFromBossDeck);
