@@ -49,6 +49,9 @@ body {
   font-size: clamp(16px, 5vw, 28px);
 }
 
+.settings-button img {
+  width: 40px;
+}
 .opponent-avatar {
     position: absolute;
     top: 0;
