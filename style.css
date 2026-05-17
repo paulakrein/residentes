@@ -628,15 +628,16 @@ position: absolute;
 .turn-button {
     position: absolute;
     left: 3%;
-    height: 75%;
-    padding: 0 3%;
+    height: 100%;
+    padding: 0 2%;
     background: #333;
     color: #aab7b0;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: bold;
     cursor: pointer;
     border-radius: 99px;
+    border: none;
 }
 
 .turn-button:hover {
