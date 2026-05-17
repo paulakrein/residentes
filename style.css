@@ -195,7 +195,7 @@ body {
   right: 4%;
   bottom: 1%;
   display: flex;
-  gap: 10%;
+  gap: 4px;
   align-items: center;
   z-index: 5;
 }
@@ -568,8 +568,7 @@ body {
 }
 
 .counter-btn {
-  width: 5vw;
-  max-width: 24px;
+  width: 20px;
   aspect-ratio: 1;
   border: none;
   background: transparent;
