@@ -753,7 +753,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 14px;
+    gap: 10px;
     z-index: 200;
 }
 
@@ -776,7 +776,7 @@ dice-object .die {
   position: relative;
   text-shadow: 0 0 16px #1d2842;
   user-select: none;
-  width: 65px;
+  width: 58px;
   cursor: pointer;
   transition: transform 0.12s ease;
 }
