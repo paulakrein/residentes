@@ -9,6 +9,13 @@ const residentChoices = document.querySelectorAll(".resident-choice");
 const playerAvatarImg = document.getElementById("playerAvatarImg");
 const opponentAvatarImg = document.getElementById("opponentAvatarImg");
 
+const residentModal = document.getElementById("residentModal");
+const residentModalCard = document.getElementById("residentModalCard");
+const residentModalClose = document.getElementById("residentModalClose");
+const residentConfirmButton = document.getElementById("residentConfirmButton");
+
+let previewResident = null;
+
 let playerName = "";
 let offeredResidents = [];
 let chosenResident = null;
@@ -77,21 +84,36 @@ startButton.addEventListener("click", () => {
 
 residentChoices.forEach((card) => {
   card.addEventListener("click", () => {
-    chosenResident = Number(card.dataset.residentId);
+    previewResident = Number(card.dataset.residentId);
 
-    playerAvatarImg.src = avatarPath(chosenResident);
-    drawOpponentResident();
-
-    createBossDeck();
-    createTacticDeck();
-    renderTacticDrawPile();
-
-    drawBosses();
-    renderOpponentHiddenTactics();
-
-    residentScreen.classList.remove("active");
-    boardScreen.classList.add("active");
+    residentModalCard.src = residentCardPath(previewResident);
+    residentModal.classList.add("active");
   });
+});
+
+residentModalClose.addEventListener("click", () => {
+  previewResident = null;
+  residentModal.classList.remove("active");
+});
+
+residentConfirmButton.addEventListener("click", () => {
+  if (!previewResident) return;
+
+  chosenResident = previewResident;
+
+  playerAvatarImg.src = avatarPath(chosenResident);
+  drawOpponentResident();
+
+  createBossDeck();
+  createTacticDeck();
+  renderTacticDrawPile();
+
+  drawBosses();
+  renderOpponentHiddenTactics();
+
+  residentModal.classList.remove("active");
+  residentScreen.classList.remove("active");
+  boardScreen.classList.add("active");
 });
 
 const opponentBoss1 = document.getElementById("opponentBoss1");
