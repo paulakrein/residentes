@@ -200,7 +200,7 @@ body {
 .player-counters {
   position: absolute;
   right: 4%;
-  bottom: 1%;
+  bottom: -4%;
   display: flex;
   gap: 4px;
   align-items: center;
@@ -635,6 +635,10 @@ body {
   font-size: clamp(10px, 2.4vw, 14px);
   font-weight: bold;
   cursor: pointer;
+}
+
+.turn-button:hover {
+  scale: 1.1;
 }
 
 /* botão BATALHAR dentro do modal da carta */
