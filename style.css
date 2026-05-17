@@ -22,7 +22,7 @@ body {
   position: relative;
   width: min(100vw, calc(100vh * 9 / 16));
   height: min(100vh, calc(100vw * 16 / 9));
-  background: url(assets/cartas/bg/wood4.png);
+  background: url(assets/cartas/bg/wood5.png);
   border: 1px solid #d7bfa8;
   overflow: hidden;
 }
@@ -52,18 +52,18 @@ body {
 }
 
 .opponent-avatar {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  width: 27%;
-  aspect-ratio: 1;
-  transform: translateX(-50%);
-  border-radius: 50%;
-  background: white;
-  z-index: 3;
-
-  border: 4px solid #AAB7B0;
-  outline: 2px solid #83938F;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: auto;
+    aspect-ratio: 1;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    background: white;
+    z-index: 3;
+    border: 4px solid #AAB7B0;
+    outline: 2px solid #83938F;
+    height: 60%;
 }
 
 .opponent-counters {
