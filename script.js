@@ -39,6 +39,8 @@ const playerScoreMinus = document.getElementById("playerScoreMinus");
 const opponentScorePlus = document.getElementById("opponentScorePlus");
 const opponentScoreMinus = document.getElementById("opponentScoreMinus");
 
+const playerNameDisplay = document.getElementById("playerNameDisplay");
+
 let previewResident = null;
 
 let playerName = "";
@@ -103,6 +105,7 @@ playerNameInput.addEventListener("input", () => {
 
 startButton.addEventListener("click", () => {
   playerName = playerNameInput.value.trim();
+  playerNameDisplay.textContent = playerName;
 
   drawResidentOptions();
 
