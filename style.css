@@ -623,8 +623,6 @@ position: absolute;
     font-size: clamp(14px, 3vw, 18px);
     font-weight: bold;
     letter-spacing: 0.03em;
-    outline: 1px solid #253d63;
-    border-top: 1px solid #7c96a3;
 }
 
 .turn-button {
@@ -638,8 +636,6 @@ position: absolute;
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;
-    border: 1px solid #555;
-    outline: 2px solid black;
     border-radius: 99px;
 }
 
