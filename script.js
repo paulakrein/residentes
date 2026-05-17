@@ -154,20 +154,17 @@ function tacticBackPath(type) {
 }
 
 function drawBosses() {
-  const bosses = shuffle(
-    Array.from({ length: TOTAL_BOSSES }, (_, index) => index + 1)
-  );
+  const opponentBossA = bossDeck.shift();
+  const opponentBossB = bossDeck.shift();
 
-  playerBoss1.src = bossPath(bosses[0]);
-  playerBoss2.src = bossPath(bosses[1]);
+  opponentBoss1.src = opponentBossA.face;
+  opponentBoss2.src = opponentBossB.face;
 
-  opponentBoss1.src = bossPath(bosses[2]);
-  opponentBoss2.src = bossPath(bosses[3]);
+  opponentBoss1.onclick = () => openCardModal(opponentBossA.face);
+  opponentBoss2.onclick = () => openCardModal(opponentBossB.face);
 
-  [playerBoss1, playerBoss2, opponentBoss1, opponentBoss2].forEach((bossCard) => {
-    bossCard.onclick = () => openCardModal(bossCard.src);
-  });
-
+  playerBossHand = [];
+  renderPlayerBossHand();
 }
 
 function drawRandomTactic() {
