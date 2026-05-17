@@ -395,9 +395,7 @@ body {
 .boss-card {
   width: 48%;
   aspect-ratio: 2 / 3;
-  object-fit: cover;
-  border: 1.5px solid #777;
-  background: white;
+  object-fit: contain;
 }
 
 /* CARTA TÁTICA COM FACE + VERSO SOBREPOSTO */
@@ -411,7 +409,7 @@ body {
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .card .card-face {
@@ -457,8 +455,6 @@ body {
   inset: 0;
   width: 100%;
   height: 100%;
-  border: 1.5px solid #777;
-  background: white;
   overflow: hidden;
   cursor: pointer;
 }
@@ -467,7 +463,7 @@ body {
 .discard-pile img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .discard-pile {
@@ -513,7 +509,7 @@ body {
   width: 66%;
   aspect-ratio: 2 / 3;
   transform: translateX(-50%);
-  object-fit: cover;
+  object-fit: contain;
   border-radius: 6%;
 }
 
@@ -567,7 +563,7 @@ body {
   width: 66%;
   aspect-ratio: 2 / 3;
   transform: translateX(-50%);
-  object-fit: cover;
+  object-fit: contain;
   border-radius: 6%;
 }
 
