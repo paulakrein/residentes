@@ -74,16 +74,12 @@ body {
 }
 
 .counter {
-  width: 13vw;
-  max-width: 60px;
-  aspect-ratio: 1;
-  border: 2px solid #777;
-  border-radius: 50%;
-  background: white;
-  display: grid;
-  place-items: center;
-  font-size: clamp(20px, 7vw, 36px);
-  font-weight: bold;
+    aspect-ratio: 1;
+    display: grid;
+    place-items: center;
+    font-size: 34px;
+    font-weight: bold;
+    grid-gap: 4px;
 }
 
 .counter.small {
@@ -568,7 +564,7 @@ body {
 .counter-group {
   display: flex;
   align-items: center;
-  gap: 2%;
+  gap: 8px;
 }
 
 .counter-btn {
