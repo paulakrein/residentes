@@ -688,7 +688,7 @@ position: absolute;
   position: absolute;
   inset: 0;
   display: none;
-  background: rgba(40, 40, 40, 0.72);
+  background: rgba(40, 40, 40, 0.8);
   z-index: 40;
 }
 
