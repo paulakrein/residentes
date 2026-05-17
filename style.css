@@ -71,6 +71,7 @@ body {
   display: flex;
   gap: 4px;
   align-items: center;
+  scale: 0.85;
 }
 
 .counter {
@@ -205,6 +206,7 @@ body {
   gap: 4px;
   align-items: center;
   z-index: 5;
+  scale: 0.85;
 }
 
 /* BARRA INFERIOR */
