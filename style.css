@@ -333,3 +333,36 @@ body {
   border: 1.5px solid #777;
   cursor: pointer;
 }
+
+/* Imagens dos residentes */
+
+.resident-choice {
+  width: 29%;
+  aspect-ratio: 2 / 3.2;
+  object-fit: cover;
+  background: #d9ad75;
+  border: 1.5px solid #777;
+  cursor: pointer;
+}
+
+/* Avatares */
+
+.opponent-avatar,
+.player-avatar {
+  overflow: hidden;
+}
+
+.opponent-avatar img,
+.player-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Ocultar temporariamente slots futuros */
+
+.boss-slot,
+.modifier-slot,
+.ally-card {
+  visibility: hidden;
+}
