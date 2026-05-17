@@ -368,17 +368,17 @@ body {
 /* CHEFES VIRADOS PARA CIMA */
 
 .opponent-bosses {
-  height: 41%;
+  height: 45%;
 }
 .player-bosses {
-  height: 33%;
+  height: 40%;
 }
 
 .opponent-bosses,
 .player-bosses {
   position: absolute;
   left: 50%;
-  width: 28%;
+  width: 35%;
   transform: translateX(-50%);
   display: flex;
   gap: 10%;
@@ -391,7 +391,7 @@ body {
 }
 
 .player-bosses {
-  bottom: 85%;
+  bottom: 82%;
 }
 
 .boss-card {
