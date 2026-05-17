@@ -430,3 +430,50 @@ body {
 .player-hand {
   visibility: hidden;
 }
+
+/* DECKS DE SAQUE E DESCARTE */
+
+.deck-zone {
+  position: absolute;
+  width: 16%;
+  aspect-ratio: 2 / 3;
+  z-index: 2;
+}
+
+.boss-deck-zone {
+  right: 21%;
+  top: 5%;
+}
+
+.tactic-deck-zone {
+  right: 3%;
+  top: 5%;
+}
+
+.draw-pile,
+.discard-pile {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 1.5px solid #777;
+  background: white;
+  overflow: hidden;
+}
+
+.draw-pile img,
+.discard-pile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.discard-pile {
+  visibility: hidden;
+  transform: translateY(8%);
+  z-index: 1;
+}
+
+.draw-pile {
+  z-index: 2;
+}

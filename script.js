@@ -82,6 +82,10 @@ residentChoices.forEach((card) => {
     playerAvatarImg.src = avatarPath(chosenResident);
     drawOpponentResident();
 
+    createBossDeck();
+    createTacticDeck();
+    renderTacticDrawPile();
+
     drawBosses();
     renderOpponentHiddenTactics();
 
@@ -167,4 +171,55 @@ function renderOpponentHiddenTactics() {
     card.appendChild(face);
     card.appendChild(back);
   });
+}
+
+const tacticDrawPile = document.getElementById("tacticDrawPile");
+
+let tacticDeck = [];
+let tacticDiscard = [];
+let bossDeck = [];
+let bossDiscard = [];
+
+function createBossDeck() {
+  bossDeck = shuffle(
+    Array.from({ length: TOTAL_BOSSES }, (_, index) => ({
+      type: "chefe",
+      id: index + 1,
+      face: bossPath(index + 1),
+      back: "assets/cartas/back/back-chefe.png",
+    }))
+  );
+}
+
+function createTacticDeck() {
+  tacticDeck = shuffle([
+    ...Array.from({ length: TOTAL_EVENTOS }, (_, index) => ({
+      type: "evento",
+      id: index + 1,
+      face: tacticPath("evento", index + 1),
+      back: tacticBackPath("evento"),
+    })),
+    ...Array.from({ length: TOTAL_ITENS }, (_, index) => ({
+      type: "item",
+      id: index + 1,
+      face: tacticPath("item", index + 1),
+      back: tacticBackPath("item"),
+    })),
+    ...Array.from({ length: TOTAL_LOCAIS }, (_, index) => ({
+      type: "local",
+      id: index + 1,
+      face: tacticPath("local", index + 1),
+      back: tacticBackPath("local"),
+    })),
+  ]);
+}
+
+function renderTacticDrawPile() {
+  if (tacticDeck.length === 0) return;
+
+  const topCard = tacticDeck[0];
+
+  tacticDrawPile.innerHTML = `
+    <img src="${topCard.back}" alt="Deck de táticas" />
+  `;
 }
