@@ -90,7 +90,9 @@ document.getElementById('roll').addEventListener('click', function() {
 	let notes = document.querySelectorAll('.attribute-note');
 
 	if (notes.length > 0) {
-		notes[currentAttributeNoteIndex].textContent = total;
+		const currentValue = Number(notes[currentAttributeNoteIndex].textContent) || 0;
+		notes[currentAttributeNoteIndex].textContent = currentValue + total;
+
 		currentAttributeNoteIndex = (currentAttributeNoteIndex + 1) % notes.length;
 	}
 });
@@ -100,4 +102,15 @@ document.getElementById('clearDice').addEventListener('click', function() {
 	document.getElementById('table-top').innerHTML = '';
 
 	document.getElementById('roll').setAttribute('disabled', '');
+});
+
+document.querySelectorAll('.attribute-note-btn').forEach((button) => {
+	button.addEventListener('click', () => {
+		const row = button.closest('.attribute-note-row');
+		const note = row.querySelector('.attribute-note');
+		const delta = Number(button.dataset.delta);
+
+		const currentValue = Number(note.textContent) || 0;
+		note.textContent = currentValue + delta;
+	});
 });
