@@ -338,6 +338,9 @@ function openCardModal(src, options = {}) {
   const oldBattleButton = cardModal.querySelector(".battle-button");
   if (oldBattleButton) oldBattleButton.remove();
 
+  const oldDiscardButton = cardModal.querySelector(".discard-button");
+  if (oldDiscardButton) oldDiscardButton.remove();
+
   if (options.showBattleButton) {
     const battleButton = document.createElement("button");
     battleButton.className = "battle-button";
@@ -352,6 +355,33 @@ function openCardModal(src, options = {}) {
 
     cardModal.appendChild(battleButton);
   }
+  if (options.showDiscardButton) {
+    const discardButton = document.createElement("button");
+    discardButton.className = "discard-button";
+    discardButton.textContent = "DESCARTAR";
+
+    discardButton.addEventListener("click", () => {
+      if (options.discardType === "tactic") {
+        const discardedCard = playerTacticHand.splice(options.cardIndex, 1)[0];
+        if (discardedCard) tacticDiscard.push(discardedCard);
+
+        renderPlayerTacticHand();
+        renderBattlePlayerArea();
+      }
+
+      if (options.discardType === "boss") {
+        const discardedCard = playerBossHand.splice(options.cardIndex, 1)[0];
+        if (discardedCard) bossDiscard.push(discardedCard);
+
+        renderPlayerBossHand();
+      }
+
+      closeCardModal();
+    });
+
+    cardModal.appendChild(discardButton);
+  }
+
 }
 
 function closeCardModal() {
@@ -360,6 +390,9 @@ function closeCardModal() {
 
   const oldBattleButton = cardModal.querySelector(".battle-button");
   if (oldBattleButton) oldBattleButton.remove();
+
+  const oldDiscardButton = cardModal.querySelector(".discard-button");
+  if (oldDiscardButton) oldDiscardButton.remove();
 }
 
 cardModalClose.addEventListener("click", closeCardModal);
@@ -410,7 +443,11 @@ function renderPlayerTacticHand() {
 
     slot.appendChild(img);
 
-    slot.onclick = () => openCardModal(card.face);
+    slot.onclick = () => openCardModal(card.face, {
+      showDiscardButton: true,
+      discardType: "tactic",
+      cardIndex: index,
+    });
   });
 }
 
@@ -450,6 +487,9 @@ function renderPlayerBossHand() {
 
       openCardModal(card.face, {
         showBattleButton: isChoosingBossForBattle,
+        showDiscardButton: true,
+        discardType: "boss",
+        cardIndex: index,
       });
     };
   });

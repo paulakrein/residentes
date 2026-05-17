@@ -278,18 +278,20 @@ body {
 }
 
 .start-button {
-  position: absolute;
-  top: 43%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 73%;
-  height: 9%;
-  border: none;
-  background: #a98572;
-  color: #d8d8d8;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: clamp(18px, 5vw, 28px);
-  font-weight: bold;
+position: absolute;
+    top: 43%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 73%;
+    height: 9%;
+    background: #d9ad75;
+    color: #fbf7ea;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: clamp(18px, 5vw, 28px);
+    font-weight: bold;
+    border-radius: 100px;
+    outline: 10px solid #d8ad75;
+    border: 3px solid #fbf7ea;
 }
 
 .start-button:disabled {
@@ -657,6 +659,26 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   font-size: clamp(16px, 4.5vw, 24px);
   font-weight: bold;
+  cursor: pointer;
+  z-index: 101;
+}
+
+.discard-button {
+  position: absolute;
+  left: 50%;
+  top: 82%;
+  width: 47%;
+  height: 7%;
+  transform: translateX(-50%);
+
+  border: none;
+  background: #6f6f6f;
+  color: #f2f2f2;
+
+  font-family: Georgia, serif;
+  font-size: clamp(15px, 4vw, 22px);
+  font-weight: bold;
+
   cursor: pointer;
   z-index: 101;
 }
