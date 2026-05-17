@@ -1051,14 +1051,15 @@ dice-object .die:hover {
 
 .battle-ally-card {
   position: absolute;
-  left: 4%;
-  bottom: 25%;
+  left: 18%;
+  bottom: 0%;
   width: 18%;
   aspect-ratio: 2 / 3;
   object-fit: contain;
   z-index: 46;
   cursor: pointer;
   visibility: hidden;
+  rotate: -90deg;
 }
 
 .battle-ally-card.active {
