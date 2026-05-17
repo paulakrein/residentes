@@ -77,10 +77,20 @@ customElements.define('dice-icon', DiceIcon);
 
 document.getElementById('roll').addEventListener('click', function() {
 	let dice = document.querySelectorAll('dice-object');
+	let total = 0;
 	
 	dice.forEach((die) => {
 		let sides = die.getAttribute('sides');
 		let roll = Math.floor(Math.random() * sides + 1);
+
 		die.querySelector('.value').innerText = roll;
+		total += roll;
 	});
+
+	let notes = document.querySelectorAll('.attribute-note');
+
+	if (notes.length > 0) {
+		notes[currentAttributeNoteIndex].textContent = total;
+		currentAttributeNoteIndex = (currentAttributeNoteIndex + 1) % notes.length;
+	}
 });
