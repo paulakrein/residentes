@@ -971,3 +971,9 @@ dice-object .die:hover {
   width: 30px;
   left: -15px;
 }
+
+.pt-icon {
+  position: absolute;
+  width: 30px;
+  left: -15px;
+}
