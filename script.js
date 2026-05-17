@@ -14,6 +14,10 @@ const residentModalCard = document.getElementById("residentModalCard");
 const residentModalClose = document.getElementById("residentModalClose");
 const residentConfirmButton = document.getElementById("residentConfirmButton");
 
+const cardModal = document.getElementById("cardModal");
+const cardModalImg = document.getElementById("cardModalImg");
+const cardModalClose = document.getElementById("cardModalClose");
+
 let previewResident = null;
 
 let playerName = "";
@@ -150,6 +154,11 @@ function drawBosses() {
 
   opponentBoss1.src = bossPath(bosses[2]);
   opponentBoss2.src = bossPath(bosses[3]);
+
+  [playerBoss1, playerBoss2, opponentBoss1, opponentBoss2].forEach((bossCard) => {
+    bossCard.onclick = () => openCardModal(bossCard.src);
+  });
+
 }
 
 function drawRandomTactic() {
@@ -177,6 +186,7 @@ function renderOpponentHiddenTactics() {
 
     if (index >= 3) {
       card.style.visibility = "hidden";
+      card.onclick = null;
       return;
     }
 
@@ -189,6 +199,8 @@ function renderOpponentHiddenTactics() {
     const back = document.createElement("img");
     back.className = "card-back";
     back.src = tacticBackPath(tactic.type);
+
+    card.onclick = () => openCardModal(back.src);
 
     card.appendChild(face);
     card.appendChild(back);
@@ -245,3 +257,23 @@ function renderTacticDrawPile() {
     <img src="${topCard.back}" alt="Deck de táticas" />
   `;
 }
+
+function openCardModal(src) {
+  if (!src) return;
+
+  cardModalImg.src = src;
+  cardModal.classList.add("active");
+}
+
+function closeCardModal() {
+  cardModal.classList.remove("active");
+  cardModalImg.src = "";
+}
+
+cardModalClose.addEventListener("click", closeCardModal);
+
+cardModal.addEventListener("click", (event) => {
+  if (event.target === cardModal) {
+    closeCardModal();
+  }
+});

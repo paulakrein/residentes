@@ -522,3 +522,41 @@ body {
   font-weight: bold;
   cursor: pointer;
 }
+
+/* MODAL GERAL DE CARTAS */
+
+.card-modal {
+  position: absolute;
+  inset: 0;
+  display: none;
+  background: rgba(40, 40, 40, 0.68);
+  z-index: 30;
+}
+
+.card-modal.active {
+  display: block;
+}
+
+.card-modal-close {
+  position: absolute;
+  top: 9%;
+  right: 13%;
+  border: none;
+  background: transparent;
+  color: white;
+  font-size: clamp(48px, 12vw, 76px);
+  line-height: 1;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.card-modal-img {
+  position: absolute;
+  top: 18%;
+  left: 50%;
+  width: 66%;
+  aspect-ratio: 2 / 3;
+  transform: translateX(-50%);
+  object-fit: cover;
+  border-radius: 6%;
+}
