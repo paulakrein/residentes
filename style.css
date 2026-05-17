@@ -758,25 +758,28 @@ body {
 }
 
 #table-top {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 12px;
-  min-height: 92px;
-  max-width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    min-height: 76px;
+    max-width: 100%;
+    max-height: 160px;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 dice-object .die {
   aspect-ratio: 1;
   color: #fff;
   display: grid;
-  font-size: 34px;
+  font-size: 30px;
   font-weight: bold;
   place-content: center;
   position: relative;
   text-shadow: 0 0 16px #1d2842;
   user-select: none;
-  width: 70px;
+  width: 65px;
   cursor: pointer;
   transition: transform 0.12s ease;
 }
