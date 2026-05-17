@@ -744,17 +744,17 @@ body {
 /* DICE ROLLER NO MODAL DE BATALHA */
 
 .battle-dice-roller {
-  position: absolute;
-  top: 31%;
-  left: 50%;
-  width: calc(100% - 140px);
-  transform: translateX(-50%);
-  z-index: 43;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 14px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 43;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    z-index: 200;
 }
 
 #table-top {
