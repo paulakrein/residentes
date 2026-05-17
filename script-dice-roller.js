@@ -90,11 +90,9 @@ customElements.define('dice-icon', DiceIcon);
 
 
 // Roll the dice
-
 document.getElementById('roll').addEventListener('click', function() {
 	let dice = document.querySelectorAll('dice-object');
-	let total = 0;
-	lastRollTotal = 0;
+	let lastRollTotal = 0;
 	
 	dice.forEach((die) => {
 		let sides = die.getAttribute('sides');
@@ -108,7 +106,7 @@ document.getElementById('roll').addEventListener('click', function() {
 
 	if (notes.length > 0) {
 		const currentValue = Number(notes[currentAttributeNoteIndex].textContent) || 0;
-		notes[currentAttributeNoteIndex].textContent = currentValue + total;
+		notes[currentAttributeNoteIndex].textContent = currentValue + lastRollTotal;
 
 		currentAttributeNoteIndex = (currentAttributeNoteIndex + 1) % notes.length;
 	}
