@@ -67,7 +67,7 @@ body {
 .opponent-counters {
   position: absolute;
   top: 1%;
-  right: 7%;
+  right: 4%;
   display: flex;
   gap: 4px;
   align-items: center;
@@ -77,7 +77,7 @@ body {
     aspect-ratio: 1;
     display: grid;
     place-items: center;
-    font-size: 30px;
+    font-size: 24px;
     font-weight: bold;
     grid-gap: 4px;
     width: 30px;
