@@ -821,6 +821,10 @@ dice-object[sides="6"] svg {
   left: 6px;
 }
 
+dice-object[sides="20"] .icon {
+  color: #333;
+}
+
 #controls {
   display: flex;
   gap: 14px;
