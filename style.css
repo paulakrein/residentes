@@ -862,3 +862,20 @@ dice-object .die:hover {
   opacity: 0.45;
   pointer-events: none;
 }
+
+/* CHEFE ATUAL NO MODAL DE BATALHA */
+
+.battle-boss-card {
+  position: absolute;
+  top: 4%;
+  left: 4%;
+  width: 18%;
+  aspect-ratio: 2 / 3;
+  object-fit: contain;
+  z-index: 46;
+  cursor: pointer;
+}
+
+.battle-boss-card:hover {
+  scale: 1.05;
+}

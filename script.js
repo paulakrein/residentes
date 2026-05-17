@@ -49,6 +49,8 @@ const battleModalClose = document.getElementById("battleModalClose");
 const battlePlayerAvatarImg = document.getElementById("battlePlayerAvatarImg");
 const battlePlayerHand = document.getElementById("battlePlayerHand");
 
+const battleBossCard = document.getElementById("battleBossCard");
+
 let previewResident = null;
 
 let playerName = "";
@@ -298,6 +300,10 @@ function renderTacticDrawPile() {
 }
 
 function renderBattlePlayerArea() {
+  if (selectedBossForBattle) {
+    battleBossCard.src = selectedBossForBattle.face;
+    battleBossCard.onclick = () => openCardModal(selectedBossForBattle.face);
+  }
   battlePlayerAvatarImg.src = playerAvatarImg.src;
 
   battlePlayerAvatarImg.onclick = () => {
