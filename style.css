@@ -77,10 +77,8 @@ body {
     aspect-ratio: 1;
     display: grid;
     place-items: center;
-    font-size: 24px;
     font-weight: bold;
     grid-gap: 4px;
-    width: 30px;
 }
 
 .counter.small {
@@ -93,8 +91,10 @@ body {
 
 .counter.tiny {
   background: blue;
-  border-radius: 50%;
-  margin-right: -8px;
+    border-radius: 50%;
+    font-size: 24px;
+    margin-right: -13px;
+    width: 38px;
 }
 
 .opponent-hand {
