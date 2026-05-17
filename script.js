@@ -374,13 +374,7 @@ function renderPlayerTacticHand() {
 
     slot.appendChild(img);
 
-    slot.onclick = () => {
-      selectedBossForBattle = card;
-
-      openCardModal(card.face, {
-        showBattleButton: isChoosingBossForBattle,
-      });
-    };
+    slot.onclick = () => openCardModal(card.face);
   });
 }
 
@@ -414,7 +408,14 @@ function renderPlayerBossHand() {
     }
 
     slot.src = card.face;
-    slot.onclick = () => openCardModal(card.face);
+
+    slot.onclick = () => {
+      selectedBossForBattle = card;
+
+      openCardModal(card.face, {
+        showBattleButton: isChoosingBossForBattle,
+      });
+    };
   });
 }
 
