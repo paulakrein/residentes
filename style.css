@@ -22,7 +22,7 @@ body {
   position: relative;
   width: min(100vw, calc(100vh * 9 / 16));
   height: min(100vh, calc(100vw * 16 / 9));
-  background: #fbf7ea;
+  background: #ebe9e1;
   overflow: hidden;
 }
 
