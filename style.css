@@ -99,7 +99,7 @@ body {
 
 .opponent-hand {
   position: absolute;
-  top: 37%;
+  top: 40%;
   left: 50%;
   width: 70%;
   height: 42%;
@@ -387,7 +387,7 @@ body {
 }
 
 .opponent-bosses {
-  top: 80%;
+  top: 84%;
 }
 
 .player-bosses {
