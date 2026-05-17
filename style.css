@@ -384,7 +384,7 @@ body {
 }
 
 .player-bosses {
-  bottom: 72%;
+  bottom: 85%;
 }
 
 .boss-card {
@@ -563,4 +563,24 @@ body {
   transform: translateX(-50%);
   object-fit: cover;
   border-radius: 6%;
+}
+
+.counter-group {
+  display: flex;
+  align-items: center;
+  gap: 2%;
+}
+
+.counter-btn {
+  width: 5vw;
+  max-width: 24px;
+  aspect-ratio: 1;
+  border: none;
+  background: transparent;
+  font-size: clamp(18px, 4vw, 28px);
+  font-weight: bold;
+  color: #444;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
 }

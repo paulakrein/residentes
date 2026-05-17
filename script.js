@@ -21,6 +21,15 @@ const cardModalClose = document.getElementById("cardModalClose");
 const bossDrawPile = document.getElementById("bossDrawPile");
 const playerHandCards = document.querySelectorAll(".player-hand .card");
 
+const playerEnergy = document.getElementById("playerEnergy");
+const opponentEnergy = document.getElementById("opponentEnergy");
+
+const playerEnergyPlus = document.getElementById("playerEnergyPlus");
+const playerEnergyMinus = document.getElementById("playerEnergyMinus");
+
+const opponentEnergyPlus = document.getElementById("opponentEnergyPlus");
+const opponentEnergyMinus = document.getElementById("opponentEnergyMinus");
+
 let previewResident = null;
 
 let playerName = "";
@@ -364,3 +373,33 @@ function renderPlayerBossHand() {
 
 tacticDrawPile.addEventListener("click", drawFromTacticDeck);
 bossDrawPile.addEventListener("click", drawFromBossDeck);
+
+let playerEnergyValue = 7;
+let opponentEnergyValue = 7;
+
+function updateEnergyDisplays() {
+  playerEnergy.textContent = playerEnergyValue;
+  opponentEnergy.textContent = opponentEnergyValue;
+}
+
+playerEnergyPlus.addEventListener("click", () => {
+  playerEnergyValue++;
+  updateEnergyDisplays();
+});
+
+playerEnergyMinus.addEventListener("click", () => {
+  playerEnergyValue = Math.max(0, playerEnergyValue - 1);
+  updateEnergyDisplays();
+});
+
+opponentEnergyPlus.addEventListener("click", () => {
+  opponentEnergyValue++;
+  updateEnergyDisplays();
+});
+
+opponentEnergyMinus.addEventListener("click", () => {
+  opponentEnergyValue = Math.max(0, opponentEnergyValue - 1);
+  updateEnergyDisplays();
+});
+
+updateEnergyDisplays();
