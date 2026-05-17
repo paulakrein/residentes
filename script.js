@@ -82,7 +82,89 @@ residentChoices.forEach((card) => {
     playerAvatarImg.src = avatarPath(chosenResident);
     drawOpponentResident();
 
+    drawBosses();
+    renderOpponentHiddenTactics();
+
     residentScreen.classList.remove("active");
     boardScreen.classList.add("active");
   });
 });
+
+const opponentBoss1 = document.getElementById("opponentBoss1");
+const opponentBoss2 = document.getElementById("opponentBoss2");
+const playerBoss1 = document.getElementById("playerBoss1");
+const playerBoss2 = document.getElementById("playerBoss2");
+
+const opponentHandCards = document.querySelectorAll(".opponent-hand .card");
+
+const TOTAL_BOSSES = 36;
+const TOTAL_EVENTOS = 38;
+const TOTAL_ITENS = 30;
+const TOTAL_LOCAIS = 39;
+
+function bossPath(id) {
+  return `assets/cartas/chefes/chefe-${padNumber(id)}.png`;
+}
+
+function tacticPath(type, id) {
+  return `assets/cartas/tatica/${type}/${type}-${padNumber(id)}.png`;
+}
+
+function tacticBackPath(type) {
+  return `assets/cartas/back/back-${type}.png`;
+}
+
+function drawBosses() {
+  const bosses = shuffle(
+    Array.from({ length: TOTAL_BOSSES }, (_, index) => index + 1)
+  );
+
+  playerBoss1.src = bossPath(bosses[0]);
+  playerBoss2.src = bossPath(bosses[1]);
+
+  opponentBoss1.src = bossPath(bosses[2]);
+  opponentBoss2.src = bossPath(bosses[3]);
+}
+
+function drawRandomTactic() {
+  const deck = [
+    ...Array.from({ length: TOTAL_EVENTOS }, (_, index) => ({
+      type: "evento",
+      id: index + 1,
+    })),
+    ...Array.from({ length: TOTAL_ITENS }, (_, index) => ({
+      type: "item",
+      id: index + 1,
+    })),
+    ...Array.from({ length: TOTAL_LOCAIS }, (_, index) => ({
+      type: "local",
+      id: index + 1,
+    })),
+  ];
+
+  return shuffle(deck)[0];
+}
+
+function renderOpponentHiddenTactics() {
+  opponentHandCards.forEach((card, index) => {
+    card.innerHTML = "";
+
+    if (index >= 3) {
+      card.style.visibility = "hidden";
+      return;
+    }
+
+    const tactic = drawRandomTactic();
+
+    const face = document.createElement("img");
+    face.className = "card-face";
+    face.src = tacticPath(tactic.type, tactic.id);
+
+    const back = document.createElement("img");
+    back.className = "card-back";
+    back.src = tacticBackPath(tactic.type);
+
+    card.appendChild(face);
+    card.appendChild(back);
+  });
+}
