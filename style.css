@@ -508,7 +508,7 @@ body {
   position: absolute;
   top: 20%;
   left: 50%;
-  width: 66%;
+  width: 75%;
   aspect-ratio: 2 / 3;
   transform: translateX(-50%);
   object-fit: contain;
@@ -562,7 +562,7 @@ body {
   position: absolute;
   top: 18%;
   left: 50%;
-  width: 66%;
+  width: 75%;
   aspect-ratio: 2 / 3;
   transform: translateX(-50%);
   object-fit: contain;
