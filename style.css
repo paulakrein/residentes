@@ -77,15 +77,15 @@ body {
     aspect-ratio: 1;
     display: grid;
     place-items: center;
-    font-size: 34px;
+    font-size: 30px;
     font-weight: bold;
     grid-gap: 4px;
+    width: 30px;
 }
 
 .counter.small {
-  width: 9vw;
-  max-width: 42px;
-  font-size: clamp(16px, 5vw, 26px);
+  font-size: 26px;
+  width: 26px;
 }
 
 .opponent-hand {
