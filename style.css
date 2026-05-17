@@ -777,6 +777,7 @@ dice-object .die {
   text-shadow: 0 0 16px #1d2842;
   user-select: none;
   width: 58px;
+  padding-left: 4px;
   cursor: pointer;
   transition: transform 0.12s ease;
 }
