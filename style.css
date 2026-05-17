@@ -1048,3 +1048,23 @@ dice-object .die:hover {
   cursor: pointer;
   z-index: 101;
 }
+
+.battle-ally-card {
+  position: absolute;
+  left: 4%;
+  bottom: 25%;
+  width: 18%;
+  aspect-ratio: 2 / 3;
+  object-fit: contain;
+  z-index: 46;
+  cursor: pointer;
+  visibility: hidden;
+}
+
+.battle-ally-card.active {
+  visibility: visible;
+}
+
+.battle-ally-card:hover {
+  scale: 1.05;
+}

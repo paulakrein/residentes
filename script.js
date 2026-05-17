@@ -51,6 +51,7 @@ const battlePlayerHand = document.getElementById("battlePlayerHand");
 
 const battleBossCard = document.getElementById("battleBossCard");
 const playerAllySlot = document.getElementById("playerAllySlot");
+const battleAllyCard = document.getElementById("battleAllyCard");
 
 let previewResident = null;
 
@@ -312,6 +313,16 @@ function renderBattlePlayerArea() {
       allySourceIndex: selectedBossForBattleIndex,
     });
   }
+  
+  if (playerAllyBoss) {
+    battleAllyCard.src = playerAllyBoss.face;
+    battleAllyCard.classList.add("active");
+    battleAllyCard.onclick = () => openCardModal(playerAllyBoss.face);
+  } else {
+    battleAllyCard.removeAttribute("src");
+    battleAllyCard.classList.remove("active");
+    battleAllyCard.onclick = null;
+  }
 
   battlePlayerAvatarImg.src = playerAvatarImg.src;
 
@@ -351,6 +362,10 @@ function resetBattleModal() {
   battlePlayerHand.innerHTML = "";
   battleBossCard.removeAttribute("src");
   battleBossCard.onclick = null;
+  
+  battleAllyCard.removeAttribute("src");
+  battleAllyCard.classList.remove("active");
+  battleAllyCard.onclick = null;
 
   selectedBossForBattle = null;
   selectedBossForBattleIndex = null;
