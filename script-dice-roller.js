@@ -94,3 +94,10 @@ document.getElementById('roll').addEventListener('click', function() {
 		currentAttributeNoteIndex = (currentAttributeNoteIndex + 1) % notes.length;
 	}
 });
+
+document.getElementById('clearDice').addEventListener('click', function() {
+
+	document.getElementById('table-top').innerHTML = '';
+
+	document.getElementById('roll').setAttribute('disabled', '');
+});

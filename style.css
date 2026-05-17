@@ -911,3 +911,25 @@ dice-object .die:hover {
   font-weight: bold;
   color: #555;
 }
+
+/* BOTÕES DO DICE ROLLER */
+
+.battle-roll-buttons {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+#clearDice {
+  appearance: none;
+  background-color: #6f6f6f;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  color: #f2f2f2;
+  font-family: Georgia, serif;
+  font-size: clamp(15px, 4vw, 22px);
+  font-weight: bold;
+  padding: 7px 22px;
+  user-select: none;
+}
