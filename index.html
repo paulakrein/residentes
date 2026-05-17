@@ -179,6 +179,83 @@
   </section>
   </main>
 
+
+  <!-- Templates -->
+  <template id="dice-icon"></template>
+
+  <template id="dice-object"></template>
+
+  <!-- Sprites -->
+  <svg style="display: none;">
+    <style>
+      .outer-line {
+        stroke: #000;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+      .inner-line {
+        stroke: #253d63;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 0.5px;
+      }
+    </style>
+    <defs>
+      <!-- dice -->
+      <g id="d20">
+        <polygon class="inner-line" points="14.36 7.44 6.84 20.47 21.88 20.47 14.36 7.44" />
+        <line class="inner-line" x1="14.36" y1="7.44" x2="14.36" y2=".5" />
+        <line class="inner-line" x1="21.88" y1="20.47" x2="28.21" y2="8.5" />
+        <line class="inner-line" x1="6.84" y1="20.47" x2="14.36" y2="32.5" />
+        <line class="inner-line" x1="14.36" y1="7.44" x2=".5" y2="8.5" />
+        <line class="inner-line" x1="21.88" y1="20.47" x2="28.21" y2="24.5" />
+        <line class="inner-line" x1="6.84" y1="20.47" x2=".5" y2="24.5" />
+        <line class="inner-line" x1=".5" y1="8.5" x2="6.84" y2="20.47" />
+        <line class="inner-line" x1="14.36" y1="7.44" x2="28.21" y2="8.5" />
+        <line class="inner-line" x1="21.88" y1="20.47" x2="14.36" y2="32.5" />
+        <polygon class="outer-line" style="stroke: #2f74d2;" points="28.21 24.5 28.21 8.5 14.36 .5 .5 8.5 .5 24.5 14.36 32.5 28.21 24.5" />
+        </g>
+      <g id="d8">
+        <line class="inner-line" class="cls-2" x1="14.36" y1=".5" x2=".5" y2="24.5" />
+        <line class="inner-line" class="cls-2" x1="28.21" y1="24.5" x2="14.36" y2=".5" />
+        <line class="inner-line" class="cls-2" x1=".5" y1="24.5" x2="28.21" y2="24.5" />
+        <polygon class="outer-line" style="stroke: #604896;" points="28.21 24.5 28.21 8.5 14.36 .5 .5 8.5 .5 24.5 14.36 32.5 28.21 24.5" />
+      </g>
+      <g id="d6">
+        <line class="inner-line" x1="14.36" y1="32.5" x2="14.36" y2="16.5" />
+        <line class="inner-line" x1=".5" y1="8.5" x2="14.36" y2="16.5" />
+        <line class="inner-line" x1="28.21" y1="8.5" x2="14.36" y2="16.5" />
+        <polygon class="outer-line" style="stroke: #3f9554;" points="28.21 24.5 28.21 8.5 14.36 .5 .5 8.5 .5 24.5 14.36 32.5 28.21 24.5" />
+      </g>
+      <g id="d4">
+        <line class="inner-line" x1="16.5" y1=".5" x2="16.5" y2="18.98" />
+        <line class="inner-line" x1=".5" y1="28.21" x2="16.5" y2="18.98" />
+        <line class="inner-line" x1="32.5" y1="28.21" x2="16.5" y2="18.98" />
+        <polygon class="outer-line" style="stroke: #cd3624;" points="16.5 .5 .5 28.21 32.5 28.21 16.5 .5" />
+      </g>
+      
+      <!-- icons -->
+      <g id="d20-icon">			
+        <polygon fill="#2f74d2" points="10.39 9 10.39 3 5.2 0 0 3 0 9 5.2 12 10.39 9" />
+      </g>
+      <g id="d12-icon">
+        <polygon fill="#da312e" points="11.41 7.85 11.41 4.15 9.23 1.15 5.71 0 2.18 1.15 0 4.15 0 7.85 2.18 10.85 5.71 12 9.23 10.85 11.41 7.85" />
+      </g>
+      <g id="d10-icon">
+        <rect fill="#e97a26" x="1.76" y="1.76" width="8.49" height="8.49" transform="translate(-2.49 6) rotate(-45)" />
+      </g>
+      <g id="d8-icon">
+        <polygon fill="#604896" points="10.39 9 10.39 3 5.2 0 0 3 0 9 5.2 12 10.39 9" />
+      </g>
+      <g id="d6-icon">
+        <polygon fill="#3f9554" points="10.39 9 10.39 3 5.2 0 0 3 0 9 5.2 12 10.39 9" />
+      </g>
+      <g id="d4-icon">
+        <polygon fill="#cd3624" points="6 0 0 10.39 12 10.39 6 0" />
+      </g>
+    </defs>
+  </svg>
+  
   <script src="script.js"></script>
   <script src="script-dice-roller.js"></script>
 </body>
