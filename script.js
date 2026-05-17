@@ -131,6 +131,7 @@ residentConfirmButton.addEventListener("click", () => {
 
   playerAvatarImg.src = avatarPath(chosenResident);
   drawOpponentResident();
+  attachAvatarModals();
 
   createBossDeck();
   createTacticDeck();
@@ -442,3 +443,15 @@ opponentScoreMinus.addEventListener("click", () => {
 });
 
 updateScoreDisplays();
+
+function attachAvatarModals() {
+  playerAvatarImg.onclick = () => {
+    if (!chosenResident) return;
+    openCardModal(residentCardPath(chosenResident));
+  };
+
+  opponentAvatarImg.onclick = () => {
+    if (!opponentResident) return;
+    openCardModal(residentCardPath(opponentResident));
+  };
+}

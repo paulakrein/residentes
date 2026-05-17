@@ -451,6 +451,7 @@ body {
   border: 1.5px solid #777;
   background: white;
   overflow: hidden;
+  cursor: pointer;
 }
 
 .draw-pile img,
@@ -588,4 +589,9 @@ body {
   width: 4vw;
   max-width: 18px;
   font-size: clamp(14px, 3vw, 20px);
+}
+
+.opponent-avatar,
+.player-avatar {
+  cursor: pointer;
 }
