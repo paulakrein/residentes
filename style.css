@@ -114,11 +114,12 @@ body {
   transform-origin: top center;
 }
 
-.t1 { left: 3%; transform: rotate(15deg); }
-.t2 { left: 21%; transform: rotate(8deg); }
-.t3 { left: 40%; transform: rotate(0deg); }
-.t4 { left: 59%; transform: rotate(-8deg); }
-.t5 { left: 77%; transform: rotate(-15deg); }
+.t1 { left: 0%; transform: rotate(15deg); }
+.t2 { left: 18%; transform: rotate(8deg); }
+.t3 { left: 37%; transform: rotate(0deg); }
+.t4 { left: 56%; transform: rotate(-8deg); }
+.t5 { left: 74%; transform: rotate(-15deg); }
+.t6 { left: 92%; transform: rotate(-22deg); }
 
 /* CENTRO */
 
@@ -173,12 +174,12 @@ body {
   transform-origin: bottom center;
 }
 
-.f1 { left: 6%; transform: rotate(-16deg); }
-.f2 { left: 22%; transform: rotate(-9deg); }
-.f3 { left: 38%; transform: rotate(-3deg); }
-.f4 { left: 54%; transform: rotate(4deg); }
-.f5 { left: 70%; transform: rotate(10deg); }
-.f6 { left: 86%; transform: rotate(16deg); }
+.f1 { left: 11%; transform: rotate(-16deg); }
+.f2 { left: 24%; transform: rotate(-9deg); }
+.f3 { left: 37%; transform: rotate(-3deg); }
+.f4 { left: 48%; transform: rotate(4deg); }
+.f5 { left: 61%; transform: rotate(10deg); }
+.f6 { left: 75%; transform: rotate(16deg); }
 
 .player-avatar {
   position: absolute;
