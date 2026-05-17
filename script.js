@@ -46,6 +46,9 @@ const startTurnButton = document.getElementById("startTurnButton");
 const battleModal = document.getElementById("battleModal");
 const battleModalClose = document.getElementById("battleModalClose");
 
+const battlePlayerAvatarImg = document.getElementById("battlePlayerAvatarImg");
+const battlePlayerHand = document.getElementById("battlePlayerHand");
+
 let previewResident = null;
 
 let playerName = "";
@@ -294,6 +297,32 @@ function renderTacticDrawPile() {
   `;
 }
 
+function renderBattlePlayerArea() {
+  battlePlayerAvatarImg.src = playerAvatarImg.src;
+
+  battlePlayerAvatarImg.onclick = () => {
+    if (!chosenResident) return;
+    openCardModal(residentCardPath(chosenResident));
+  };
+
+  battlePlayerHand.innerHTML = "";
+
+  playerTacticHand.forEach((card, index) => {
+    const slot = document.createElement("div");
+    slot.className = `card fan f${index + 1}`;
+
+    const img = document.createElement("img");
+    img.src = card.face;
+    img.alt = `${card.type}-${padNumber(card.id)}`;
+
+    slot.appendChild(img);
+
+    slot.onclick = () => openCardModal(card.face);
+
+    battlePlayerHand.appendChild(slot);
+  });
+}
+
 function openCardModal(src, options = {}) {
   if (!src) return;
 
@@ -310,6 +339,7 @@ function openCardModal(src, options = {}) {
 
     battleButton.addEventListener("click", () => {
       closeCardModal();
+      renderBattlePlayerArea();
       battleModal.classList.add("active");
       isChoosingBossForBattle = false;
     });

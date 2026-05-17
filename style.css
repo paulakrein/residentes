@@ -678,3 +678,62 @@ body {
   line-height: 1;
   cursor: pointer;
 }
+
+/* Avatar e mão acima do cover preto da batalha */
+
+.battle-player-avatar {
+  position: absolute;
+  bottom: 6%;
+  left: 50%;
+  width: 26%;
+  aspect-ratio: 1;
+  transform: translateX(-50%);
+  border: 2px solid #777;
+  border-radius: 50%;
+  background: white;
+  overflow: hidden;
+  z-index: 45;
+  cursor: pointer;
+}
+
+.battle-player-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.battle-player-hand {
+  position: absolute;
+  bottom: 14%;
+  left: 50%;
+  width: 120%;
+  height: 28%;
+  transform: translateX(-50%);
+  z-index: 44;
+}
+
+.battle-player-hand .card {
+  position: absolute;
+  bottom: 0;
+  width: 20%;
+  aspect-ratio: 2 / 3;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.battle-player-hand .card img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.battle-player-hand .card:hover {
+  scale: 1.05;
+}
+
+.battle-player-hand .f1 { left: 11%; transform: rotate(-16deg); }
+.battle-player-hand .f2 { left: 24%; transform: rotate(-9deg); }
+.battle-player-hand .f3 { left: 37%; transform: rotate(-3deg); }
+.battle-player-hand .f4 { left: 48%; transform: rotate(4deg); }
+.battle-player-hand .f5 { left: 61%; transform: rotate(10deg); }
+.battle-player-hand .f6 { left: 75%; transform: rotate(16deg); }
