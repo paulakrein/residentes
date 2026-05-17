@@ -84,8 +84,8 @@ body {
 }
 
 .counter.small {
-  font-size: 26px;
-  width: 26px;
+  font-size: 30px;
+  width: 30px;
 }
 
 .opponent-hand {
@@ -569,16 +569,17 @@ body {
 }
 
 .counter-btn {
-  width: 20px;
+  width: 22px;
   aspect-ratio: 1;
   border: none;
-  background: transparent;
-  font-size: clamp(18px, 4vw, 28px);
+  background: white;
+  font-size: 20px;
   font-weight: bold;
   color: #444;
   cursor: pointer;
   padding: 0;
   line-height: 1;
+  border-radius: 50%;
 }
 
 .small-group {
@@ -586,9 +587,7 @@ body {
 }
 
 .small-btn {
-  width: 4vw;
-  max-width: 18px;
-  font-size: clamp(14px, 3vw, 20px);
+  width: 28px
 }
 
 .opponent-avatar,
