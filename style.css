@@ -403,6 +403,7 @@ body {
 
 .card {
   overflow: hidden;
+  cursor: pointer;
 }
 
 .card img {
