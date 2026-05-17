@@ -476,11 +476,13 @@ function renderPlayerBossHand() {
 
     if (!card) {
       slot.removeAttribute("src");
+      slot.style.visibility = "hidden";
       slot.onclick = null;
       return;
     }
 
     slot.src = card.face;
+    slot.style.visibility = "visible";
 
     slot.onclick = () => {
       selectedBossForBattle = card;
