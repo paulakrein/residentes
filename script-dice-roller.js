@@ -1,6 +1,7 @@
 // Custom Components
 
 let currentAttributeNoteIndex = 0;
+let lastRollTotal = 0;
 
 class DiceObject extends HTMLElement {
 	constructor() {
@@ -53,17 +54,32 @@ class DiceIcon extends HTMLElement {
 		// pega o dado recém-criado
 		let addedDie = document.querySelector('#table-top').lastElementChild;
 
-		// clicar no dado remove ele
+		// clicar no dado rerrola ele
 		addedDie.querySelector('.die').addEventListener('click', () => {
 
-			addedDie.remove();
+		const sides = Number(addedDie.getAttribute('sides'));
 
-			// desativa roll se não houver mais dados
-			let diceLeft = document.querySelectorAll('dice-object');
+		const oldValue =
+			Number(addedDie.querySelector('.value').innerText) || 0;
 
-			if (diceLeft.length < 1) {
-				document.getElementById('roll').setAttribute('disabled', '');
-			}
+		const newValue =
+			Math.floor(Math.random() * sides + 1);
+
+		addedDie.querySelector('.value').innerText = newValue;
+
+		const difference = newValue - oldValue;
+
+		const noteIndex =
+			(currentAttributeNoteIndex - 1 + document.querySelectorAll('.attribute-note').length)
+			% document.querySelectorAll('.attribute-note').length;
+
+		const note =
+			document.querySelectorAll('.attribute-note')[noteIndex];
+
+		const currentNoteValue =
+			Number(note.textContent) || 0;
+
+		note.textContent = currentNoteValue + difference;
 		});
 	});
 }
@@ -78,13 +94,14 @@ customElements.define('dice-icon', DiceIcon);
 document.getElementById('roll').addEventListener('click', function() {
 	let dice = document.querySelectorAll('dice-object');
 	let total = 0;
+	lastRollTotal = 0;
 	
 	dice.forEach((die) => {
 		let sides = die.getAttribute('sides');
 		let roll = Math.floor(Math.random() * sides + 1);
 
 		die.querySelector('.value').innerText = roll;
-		total += roll;
+		lastRollTotal += roll;
 	});
 
 	let notes = document.querySelectorAll('.attribute-note');
