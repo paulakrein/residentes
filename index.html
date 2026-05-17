@@ -156,6 +156,29 @@
     <div class="battle-modal" id="battleModal">
       <button class="battle-modal-close" id="battleModalClose">×</button>
 
+      <div class="battle-modal" id="battleModal">
+        <button class="battle-modal-close" id="battleModalClose">×</button>
+
+        <div class="battle-dice-roller" id="battleDiceRoller">
+          <div id="table-top"></div>
+
+          <div id="controls">
+            <dice-icon sides="20"></dice-icon>
+            <dice-icon sides="8"></dice-icon>
+            <dice-icon sides="6"></dice-icon>
+            <dice-icon sides="4"></dice-icon>
+          </div>
+
+          <button id="roll" disabled>Roll</button>
+        </div>
+
+        <div class="battle-player-avatar">
+          <img id="battlePlayerAvatarImg" />
+        </div>
+
+        <div class="battle-player-hand" id="battlePlayerHand"></div>
+      </div>
+
       <div class="battle-player-avatar">
         <img id="battlePlayerAvatarImg" />
       </div>
@@ -167,5 +190,6 @@
   </main>
 
   <script src="script.js"></script>
+  <script src="dice-roller.js"></script>
 </body>
 </html>

@@ -739,3 +739,126 @@ body {
 .battle-player-hand .f4 { left: 48%; transform: rotate(4deg); }
 .battle-player-hand .f5 { left: 61%; transform: rotate(10deg); }
 .battle-player-hand .f6 { left: 75%; transform: rotate(16deg); }
+
+/* DICE ROLLER NO MODAL DE BATALHA */
+
+.battle-dice-roller {
+  position: absolute;
+  top: 31%;
+  left: 50%;
+  width: 82%;
+  transform: translateX(-50%);
+  z-index: 43;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+#table-top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  min-height: 92px;
+  max-width: 100%;
+}
+
+dice-object .die {
+  aspect-ratio: 1;
+  color: #fff;
+  display: grid;
+  font-size: 34px;
+  font-weight: bold;
+  place-content: center;
+  position: relative;
+  text-shadow: 0 0 16px #1d2842;
+  user-select: none;
+  width: 92px;
+  cursor: pointer;
+  transition: transform 0.12s ease;
+}
+
+dice-object svg {
+  fill: none;
+  position: absolute;
+  width: 100%;
+  z-index: -1;
+}
+
+dice-object[sides="20"] svg,
+dice-object[sides="8"] svg,
+dice-object[sides="6"] svg {
+  left: 6px;
+}
+
+#controls {
+  display: flex;
+  gap: 14px;
+}
+
+dice-icon {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+dice-icon .icon {
+  aspect-ratio: 1;
+  color: #fff;
+  font-weight: bold;
+  display: grid;
+  padding: 8px 0;
+  place-content: center;
+  position: relative;
+  user-select: none;
+  width: 40px;
+}
+
+dice-icon svg {
+  position: absolute;
+  top: 8px;
+  width: 40px;
+  z-index: -1;
+}
+
+dice-icon[sides="20"] svg,
+dice-icon[sides="8"] svg,
+dice-icon[sides="6"] svg {
+  left: 2px;
+}
+
+dice-icon[sides="4"] .icon {
+  padding-bottom: 7px;
+  padding-top: 9px;
+}
+
+dice-icon[sides="4"] svg {
+  top: 9px;
+}
+
+dice-icon .icon:hover,
+dice-object .die:hover {
+  transform: scale(1.08);
+}
+
+#roll {
+  appearance: none;
+  background-color: #cf8258;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  color: #f2f2f2;
+  font-family: Georgia, serif;
+  font-size: clamp(15px, 4vw, 22px);
+  font-weight: bold;
+  padding: 7px 28px;
+  user-select: none;
+}
+
+#roll:disabled {
+  opacity: 0.45;
+  pointer-events: none;
+}
