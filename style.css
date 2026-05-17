@@ -369,12 +369,18 @@ body {
 
 /* CHEFES VIRADOS PARA CIMA */
 
+.opponent-bosses {
+  height: 41%;
+}
+.player-bosses {
+  height: 33%;
+}
+
 .opponent-bosses,
 .player-bosses {
   position: absolute;
   left: 50%;
-  width: 19%;
-  height: 18%;
+  width: 28%;
   transform: translateX(-50%);
   display: flex;
   gap: 10%;
