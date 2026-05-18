@@ -1133,3 +1133,95 @@ position: RELATIVE;
 .settings-link:hover {
   scale: 1.03;
 }
+
+.rules-panel {
+  display: none;
+  width: 100%;
+}
+
+.rules-panel.active {
+  display: block;
+}
+
+.rules-content {
+  position: relative;
+  width: 100%;
+  height: 64vh;
+  margin-top: 10px;
+}
+
+.rules-card {
+  display: none;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.rules-card.active {
+  display: block;
+}
+
+.rules-book {
+  display: none;
+  width: 100%;
+  height: 100%;
+  padding: 18px;
+  border-radius: 18px;
+  background: #f2f2f2;
+  color: #333;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  line-height: 1.45;
+  overflow-y: auto;
+}
+
+.rules-book.active {
+  display: block;
+}
+
+.rules-book h2 {
+  margin-top: 0;
+  font-size: 22px;
+}
+
+.rules-arrow {
+  position: absolute;
+  top: 50%;
+  width: 38px;
+  height: 56px;
+  transform: translateY(-50%);
+  border: none;
+  border-radius: 999px;
+  background: rgba(40, 40, 40, 0.72);
+  color: white;
+  font-size: 42px;
+  line-height: 1;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.rules-arrow-left {
+  left: -14px;
+}
+
+.rules-arrow-right {
+  right: -14px;
+}
+
+.rules-arrow:disabled {
+  opacity: 0.25;
+  pointer-events: none;
+}
+
+.rules-back-button {
+  width: 100%;
+  height: 42px;
+  border: none;
+  border-radius: 999px;
+  background: #536067;
+  color: #f2f4f7;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+}

@@ -822,12 +822,90 @@ document
 
   switchPlayerButton.addEventListener("click", swapPlayers);
 
-  function openSettingsModal() {
+  function renderRulesPage() {
+  const page = rulesPages[currentRulesPage];
+
+  rulesCardImage.classList.remove("active");
+  rulesBook.classList.remove("active");
+
+  if (page.type === "image") {
+    rulesCardImage.src = page.src;
+    rulesCardImage.classList.add("active");
+  }
+
+  if (page.type === "book") {
+    rulesBook.classList.add("active");
+  }
+
+  rulesPrevButton.disabled = currentRulesPage === 0;
+  rulesNextButton.disabled = currentRulesPage === rulesPages.length - 1;
+}
+
+function openRulesPanel() {
+  restartGameButton.style.display = "none";
+  rulesButton.style.display = "none";
+  creditsButton.style.display = "none";
+
+  rulesPanel.classList.add("active");
+
+  currentRulesPage = 0;
+  renderRulesPage();
+}
+
+function closeRulesPanel() {
+  rulesPanel.classList.remove("active");
+
+  restartGameButton.style.display = "";
+  rulesButton.style.display = "";
+  creditsButton.style.display = "";
+}
+
+function renderRulesPage() {
+  const page = rulesPages[currentRulesPage];
+
+  rulesCardImage.classList.remove("active");
+  rulesBook.classList.remove("active");
+
+  if (page.type === "image") {
+    rulesCardImage.src = page.src;
+    rulesCardImage.classList.add("active");
+  }
+
+  if (page.type === "book") {
+    rulesBook.classList.add("active");
+  }
+
+  rulesPrevButton.disabled = currentRulesPage === 0;
+  rulesNextButton.disabled = currentRulesPage === rulesPages.length - 1;
+}
+
+function openRulesPanel() {
+  restartGameButton.style.display = "none";
+  rulesButton.style.display = "none";
+  creditsButton.style.display = "none";
+
+  rulesPanel.classList.add("active");
+
+  currentRulesPage = 0;
+  renderRulesPage();
+}
+
+function closeRulesPanel() {
+  rulesPanel.classList.remove("active");
+
+  restartGameButton.style.display = "";
+  rulesButton.style.display = "";
+  creditsButton.style.display = "";
+}
+
+function openSettingsModal() {
   settingsModal.classList.add("active");
 }
 
+
 function closeSettingsModal() {
   settingsModal.classList.remove("active");
+  closeRulesPanel();
 }
 
 settingsButton.addEventListener("click", openSettingsModal);
@@ -844,10 +922,47 @@ restartGameButton.addEventListener("click", () => {
   location.reload();
 });
 
-rulesButton.addEventListener("click", () => {
-  alert("Em breve.");
-});
+rulesButton.addEventListener("click", openRulesPanel);
 
 creditsButton.addEventListener("click", () => {
   alert("Residentes");
+});
+
+const rulesPanel = document.getElementById("rulesPanel");
+const rulesBackButton = document.getElementById("rulesBackButton");
+const rulesPrevButton = document.getElementById("rulesPrevButton");
+const rulesNextButton = document.getElementById("rulesNextButton");
+const rulesCardImage = document.getElementById("rulesCardImage");
+const rulesBook = document.getElementById("rulesBook");
+
+const rulesPages = [
+  {
+    type: "image",
+    src: "assets/cartas/regras/regra-01.png",
+  },
+  {
+    type: "image",
+    src: "assets/cartas/regras/regra-02.png",
+  },
+  {
+    type: "book",
+  },
+];
+
+let currentRulesPage = 0;
+
+rulesBackButton.addEventListener("click", closeRulesPanel);
+
+rulesPrevButton.addEventListener("click", () => {
+  if (currentRulesPage <= 0) return;
+
+  currentRulesPage--;
+  renderRulesPage();
+});
+
+rulesNextButton.addEventListener("click", () => {
+  if (currentRulesPage >= rulesPages.length - 1) return;
+
+  currentRulesPage++;
+  renderRulesPage();
 });
