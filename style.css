@@ -275,10 +275,6 @@ body {
     border-radius: 100px;
 }
 
-button:hover {
-  scale: 1.1;
-}
-
 .name-input::placeholder {
   color: #5e6a70;
 }
