@@ -269,7 +269,7 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     font-size: clamp(18px, 5vw, 28px);
     font-weight: bold;
-    color: #5e6a70;
+    color: #7e9099;
     outline: none;
     background: #333333;
     border-radius: 100px;
@@ -280,7 +280,7 @@ button:hover {
 }
 
 .name-input::placeholder {
-  color: #cfcfcf;
+  color: #5e6a70;
 }
 
 .start-button {
