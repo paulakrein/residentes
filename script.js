@@ -53,9 +53,13 @@ const battleBossCard = document.getElementById("battleBossCard");
 const playerAllySlot = document.getElementById("playerAllySlot");
 const battleAllyCard = document.getElementById("battleAllyCard");
 
+const opponentAllySlot = document.getElementById("opponentAllySlot");
+const switchPlayerButton = document.getElementById("switchPlayerButton");
+
 let previewResident = null;
 
 let playerName = "";
+let opponentName = "Adversário";
 let offeredResidents = [];
 let chosenResident = null;
 let opponentResident = null;
@@ -63,11 +67,16 @@ let opponentResident = null;
 let playerTacticHand = [];
 let playerBossHand = [];
 
+let opponentTacticHand = [];
+let opponentBossHand = [];
+
 let isChoosingBossForBattle = false;
 let selectedBossForBattle = null;
 
 let selectedBossForBattleIndex = null;
 let playerAllyBoss = null;
+
+let opponentAllyBoss = null;
 
 const TOTAL_RESIDENTS = 32;
 
@@ -156,6 +165,8 @@ residentConfirmButton.addEventListener("click", () => {
 
   createBossDeck();
   createTacticDeck();
+
+  drawOpponentInitialTactics();
   renderTacticDrawPile();
 
   drawBosses();
@@ -194,16 +205,14 @@ function tacticBackPath(type) {
 }
 
 function drawBosses() {
-  const opponentBossA = bossDeck.shift();
-  const opponentBossB = bossDeck.shift();
-
-  opponentBoss1.src = opponentBossA.face;
-  opponentBoss2.src = opponentBossB.face;
-
-  opponentBoss1.onclick = () => openCardModal(opponentBossA.face);
-  opponentBoss2.onclick = () => openCardModal(opponentBossB.face);
+  opponentBossHand = [
+    bossDeck.shift(),
+    bossDeck.shift(),
+  ].filter(Boolean);
 
   playerBossHand = [];
+
+  renderOpponentBossHand();
   renderPlayerBossHand();
 }
 
@@ -227,30 +236,124 @@ function drawRandomTactic() {
 }
 
 function renderOpponentHiddenTactics() {
-  opponentHandCards.forEach((card, index) => {
-    card.innerHTML = "";
+  opponentHandCards.forEach((cardSlot, index) => {
+    cardSlot.innerHTML = "";
 
-    if (index >= 3) {
-      card.style.visibility = "hidden";
-      card.onclick = null;
+    const card = opponentTacticHand[index];
+
+    if (!card) {
+      cardSlot.style.visibility = "hidden";
+      cardSlot.onclick = null;
       return;
     }
 
-    const tactic = drawRandomTactic();
+    cardSlot.style.visibility = "visible";
 
     const face = document.createElement("img");
     face.className = "card-face";
-    face.src = tacticPath(tactic.type, tactic.id);
+    face.src = card.face;
 
     const back = document.createElement("img");
     back.className = "card-back";
-    back.src = tacticBackPath(tactic.type);
+    back.src = card.back;
 
-    card.onclick = () => openCardModal(back.src);
+    cardSlot.onclick = () => openCardModal(card.back);
 
-    card.appendChild(face);
-    card.appendChild(back);
+    cardSlot.appendChild(face);
+    cardSlot.appendChild(back);
   });
+}
+
+function drawOpponentInitialTactics() {
+  opponentTacticHand = [];
+
+  for (let i = 0; i < 3; i++) {
+    if (tacticDeck.length === 0) return;
+    opponentTacticHand.push(tacticDeck.shift());
+  }
+}
+
+function renderOpponentBossHand() {
+  const opponentBossCards = [opponentBoss1, opponentBoss2];
+
+  opponentBossCards.forEach((slot, index) => {
+    const card = opponentBossHand[index];
+
+    if (!card) {
+      slot.removeAttribute("src");
+      slot.style.visibility = "hidden";
+      slot.onclick = null;
+      return;
+    }
+
+    slot.src = card.face;
+    slot.style.visibility = "visible";
+    slot.onclick = () => openCardModal(card.face);
+  });
+}
+
+function renderOpponentAllyBoss() {
+  opponentAllySlot.innerHTML = "";
+
+  if (!opponentAllyBoss) {
+    opponentAllySlot.classList.remove("has-ally");
+    opponentAllySlot.onclick = null;
+    return;
+  }
+
+  opponentAllySlot.classList.add("has-ally");
+
+  const img = document.createElement("img");
+  img.src = opponentAllyBoss.face;
+  img.alt = `chefe-aliado-${padNumber(opponentAllyBoss.id)}`;
+
+  opponentAllySlot.appendChild(img);
+
+  opponentAllySlot.onclick = () => openCardModal(opponentAllyBoss.face);
+}
+
+function renderWholeBoard() {
+  playerAvatarImg.src = chosenResident ? avatarPath(chosenResident) : "";
+  opponentAvatarImg.src = opponentResident ? avatarPath(opponentResident) : "";
+
+  playerNameDisplay.textContent = playerName;
+
+  updateEnergyDisplays();
+  updateScoreDisplays();
+
+  renderPlayerTacticHand();
+  renderOpponentHiddenTactics();
+
+  renderPlayerBossHand();
+  renderOpponentBossHand();
+
+  renderPlayerAllyBoss();
+  renderOpponentAllyBoss();
+
+  attachAvatarModals();
+}
+
+function swapPlayers() {
+  battleModal.classList.remove("active");
+  closeCardModal();
+  resetBattleModal();
+
+  [chosenResident, opponentResident] = [opponentResident, chosenResident];
+
+  [playerName, opponentName] = [opponentName, playerName];
+
+  [playerTacticHand, opponentTacticHand] = [opponentTacticHand, playerTacticHand];
+  [playerBossHand, opponentBossHand] = [opponentBossHand, playerBossHand];
+  [playerAllyBoss, opponentAllyBoss] = [opponentAllyBoss, playerAllyBoss];
+
+  [playerEnergyValue, opponentEnergyValue] = [opponentEnergyValue, playerEnergyValue];
+  [playerScoreValue, opponentScoreValue] = [opponentScoreValue, playerScoreValue];
+
+  isChoosingBossForBattle = false;
+  selectedBossForBattle = null;
+  selectedBossForBattleIndex = null;
+
+  renderWholeBoard();
 }
 
 const tacticDrawPile = document.getElementById("tacticDrawPile");
@@ -705,3 +808,5 @@ document
 
     currentAttributeNoteIndex = 0;
   });
+
+  switchPlayerButton.addEventListener("click", swapPlayers);
