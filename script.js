@@ -176,10 +176,14 @@ residentConfirmButton.addEventListener("click", () => {
   createTacticDeck();
 
   drawOpponentInitialTactics();
+  drawPlayerInitialTactics();
+
   renderTacticDrawPile();
 
   drawBosses();
+
   renderOpponentHiddenTactics();
+  renderPlayerTacticHand();
 
   residentModal.classList.remove("active");
   residentScreen.classList.remove("active");
@@ -219,7 +223,7 @@ function drawBosses() {
     bossDeck.shift(),
   ].filter(Boolean);
 
-  playerBossHand = [];
+  drawPlayerInitialBosses();
 
   renderOpponentBossHand();
   renderPlayerBossHand();
@@ -280,6 +284,22 @@ function drawOpponentInitialTactics() {
     if (tacticDeck.length === 0) return;
     opponentTacticHand.push(tacticDeck.shift());
   }
+}
+
+function drawPlayerInitialTactics() {
+  playerTacticHand = [];
+
+  for (let i = 0; i < 3; i++) {
+    if (tacticDeck.length === 0) return;
+    playerTacticHand.push(tacticDeck.shift());
+  }
+}
+
+function drawPlayerInitialBosses() {
+  playerBossHand = [
+    bossDeck.shift(),
+    bossDeck.shift(),
+  ].filter(Boolean);
 }
 
 function renderOpponentBossHand() {
