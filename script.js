@@ -802,6 +802,7 @@ startTurnButton.addEventListener("click", () => {
 
   isChoosingBossForBattle = true;
   selectedBossForBattle = null;
+  alert("Turno iniciado, +1 energia. Escolha um chefe para batalhar.");
 });
 
 battleModalClose.addEventListener("click", () => {
