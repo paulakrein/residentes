@@ -1087,17 +1087,19 @@ position: RELATIVE;
   display: block;
 }
 
-settings-modal-box {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 68%;
-    padding: 28px 20px 24px;
-    transform: translate(-50%, -50%);
-    border-radius: 24px;
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
+.settings-modal-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 68%;
+  padding: 28px 20px 24px;
+  transform: translate(-50%, -50%);
+  border-radius: 24px;
+  background: transparent;
+
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .settings-modal-close {
