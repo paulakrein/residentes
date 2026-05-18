@@ -23,7 +23,7 @@ body {
   width: min(100vw, calc(100vh * 9 / 16));
   height: min(100vh, calc(100vw * 16 / 9));
   background: #e3e2de;
-  background-image: url(assets/cartas/bg/wood-web.png);
+  background-image: url(assets/cartas/bg/wood-dark.png);
   overflow: hidden;
 }
 
