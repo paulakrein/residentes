@@ -258,21 +258,25 @@ body {
 }
 
 .name-input {
-  position: absolute;
-  top: 31%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 74%;
-  height: 7.5%;
-  border: none;
-  border-radius: 999px;
-  padding: 0 8%;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: clamp(18px, 5vw, 28px);
-  font-weight: bold;
-  color: #333;
-  background: white;
-  outline: none;
+    position: absolute;
+    top: 31%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 74%;
+    height: 5.5%;
+    border: 1px solid #292626;
+    padding: 0 8%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: clamp(18px, 5vw, 28px);
+    font-weight: bold;
+    color: #5e6a70;
+    outline: none;
+    background: #333333;
+    border-radius: 100px;
+}
+
+button:hover {
+  scale: 1.1;
 }
 
 .name-input::placeholder {
@@ -286,7 +290,7 @@ body {
     transform: translateX(-50%);
     width: 73%;
     height: 9%;
-    background: #333;
+    background: #292626;
     color: #fbf7ea;
     font-family: Arial, Helvetica, sans-serif;
     font-size: clamp(18px, 5vw, 28px);
@@ -315,7 +319,7 @@ body {
   top: 22%;
   left: 13%;
   margin: 0;
-  color: #d8d8d8;
+  color: #cf8258;
   font-size: clamp(20px, 5.5vw, 30px);
   line-height: 1.05;
 }
