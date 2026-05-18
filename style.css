@@ -23,7 +23,7 @@ body {
   width: min(100vw, calc(100vh * 9 / 16));
   height: min(100vh, calc(100vw * 16 / 9));
   background: #e3e2de;
-  background-image: url(https://i1-e.pinimg.com/1200x/e0/87/d6/e087d6367eba90dbfef02264a8829327.jpg);
+  background-image: url(assets/cartas/bg/wood-web.png);
   overflow: hidden;
 }
 
