@@ -338,7 +338,10 @@ function renderOpponentAllyBoss() {
 
   opponentAllySlot.appendChild(img);
 
-  opponentAllySlot.onclick = () => openCardModal(opponentAllyBoss.face);
+  opponentAllySlot.onclick = () =>
+    openCardModal(opponentAllyBoss.face, {
+      showStealAllyButton: true,
+    });
 }
 
 function renderWholeBoard() {
@@ -518,6 +521,9 @@ function openCardModal(src, options = {}) {
   const oldAllyButton = cardModal.querySelector(".ally-button");
   if (oldAllyButton) oldAllyButton.remove();
 
+  const oldStealAllyButton = cardModal.querySelector(".steal-ally-button");
+  if (oldStealAllyButton) oldStealAllyButton.remove();
+
   if (options.showBattleButton) {
     const battleButton = document.createElement("button");
     battleButton.className = "battle-button";
@@ -564,6 +570,32 @@ function openCardModal(src, options = {}) {
     });
 
     cardModal.appendChild(allyButton);
+  }
+
+  if (options.showStealAllyButton) {
+    const stealAllyButton = document.createElement("button");
+    stealAllyButton.className = "steal-ally-button";
+    stealAllyButton.textContent = "ROUBAR ALIADO";
+
+    stealAllyButton.addEventListener("click", () => {
+      if (!opponentAllyBoss) return;
+
+      const stolenAlly = opponentAllyBoss;
+      opponentAllyBoss = null;
+
+      if (playerAllyBoss) {
+        bossDiscard.push(playerAllyBoss);
+      }
+
+      playerAllyBoss = stolenAlly;
+
+      renderPlayerAllyBoss();
+      renderOpponentAllyBoss();
+
+      closeCardModal();
+    });
+
+    cardModal.appendChild(stealAllyButton);
   }
 
   if (options.showDiscardButton) {
@@ -615,6 +647,10 @@ function closeCardModal() {
 
   const oldAllyButton = cardModal.querySelector(".ally-button");
   if (oldAllyButton) oldAllyButton.remove();
+  
+  const oldStealAllyButton = cardModal.querySelector(".steal-ally-button");
+  if (oldStealAllyButton) oldStealAllyButton.remove();
+
 }
 
 cardModalClose.addEventListener("click", closeCardModal);
