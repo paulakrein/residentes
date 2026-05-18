@@ -539,13 +539,12 @@ function openCardModal(src, options = {}) {
     allyButton.textContent = "TORNAR ALIADO";
 
     allyButton.addEventListener("click", () => {
-      if (playerAllyBoss) {
-        alert("Você já tem um chefe aliado.");
-        return;
-      }
-
       const alliedBoss = playerBossHand.splice(options.allySourceIndex, 1)[0];
       if (!alliedBoss) return;
+
+      if (playerAllyBoss) {
+        bossDiscard.push(playerAllyBoss);
+      }
 
       playerAllyBoss = alliedBoss;
 
