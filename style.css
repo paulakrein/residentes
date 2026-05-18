@@ -637,6 +637,7 @@ body {
     color: #f7f2eb;
     cursor: pointer;
     width: 14%;
+    border: none;
 }
 
 .turn-button:hover {
@@ -1069,6 +1070,7 @@ position: RELATIVE;
     color: #f7f2eb;
     cursor: pointer;
     width: 18%;
+    border: none;
 }
 
 .switch-player-button:hover {
