@@ -185,15 +185,103 @@
             <img class="rules-card active" id="rulesCardImage" src="assets/cartas/regras/regra-01.png">
 
             <div class="rules-book" id="rulesBook">
-              <h2>Livro de Regras</h2>
 
-              <p>
-                Cole aqui o texto corrido completo das regras do jogo.
-              </p>
+<h2>Livro de Regras — Residentes</h2>
 
-              <p>
-                Este bloco tem overflow vertical. O jogador poderá rolar o texto dentro do próprio modal.
-              </p>
+<h3>Objetivo</h3>
+<p><b>Residentes</b> é um jogo competitivo de cartas. Cada jogador controla 1 residente e enfrenta chefes institucionais para ganhar pontos.</p>
+<p><b>Vence imediatamente</b> quem chegar a <b>10 pontos</b>.</p>
+
+<h3>Preparação</h3>
+<ol>
+  <li>Cada jogador recebe <b>3 residentes</b>, escolhe <b>1</b> e devolve os outros ao deck.</li>
+  <li>Cada jogador começa com <b>7 energias</b>.</li>
+  <li>Cada jogador compra <b>2 chefes</b> e coloca ambos abertos em seu campo.</li>
+  <li>Cada jogador compra <b>3 cartas táticas</b>.</li>
+  <li>Todos começam com <b>0 pontos</b>.</li>
+</ol>
+
+<h3>Cartas</h3>
+<p><b>Residente:</b> seu personagem. Define quantos dados você rola em cada atributo.</p>
+<p><b>Chefe:</b> desafio a ser enfrentado. Define o tipo de dado, o custo, a recompensa e a dificuldade.</p>
+<p><b>Cartas táticas:</b> cartas usadas para alterar a batalha.</p>
+
+<ul>
+  <li><b>LOCAL:</b> usado antes da primeira rolagem.</li>
+  <li><b>EVENTO:</b> usado por adversários logo antes de uma rolagem, interfere no atributo rolado a seguir.</li>
+  <li><b>ITEM:</b> usado após vitória ou derrota na batalha.</li>
+</ul>
+
+<h3>Energia</h3>
+<p>No início do seu turno, ganhe <b>+1 energia</b>.</p>
+<p>Para enfrentar um chefe, você deve pagar seu custo:</p>
+<ul>
+  <li><b>d4:</b> 1 energia</li>
+  <li><b>d6:</b> 2 energias</li>
+  <li><b>d8:</b> 3 energias</li>
+</ul>
+
+<h3>Turno</h3>
+<p>No seu turno, escolha uma ação:</p>
+<ol>
+  <li><b>Enfrentar</b> um chefe do seu campo.</li>
+  <li><b>Comprar</b> um chefe aleatório e enfrentá-lo.</li>
+  <li><b>Descanso institucional</b>: +2 energia e +1 carta e encerrar o turno</li>
+</ol>
+
+<h3>Batalha</h3>
+<p>A batalha tem 5 atributos, sempre nesta ordem:</p>
+<ol>
+  <li>Persistência</li>
+  <li>Inteligência</li>
+  <li>Sedução</li>
+  <li>Carisma</li>
+  <li>Autoridade</li>
+</ol>
+
+<p>Para cada atributo:</p>
+<ol>
+  <li>Role dados iguais ao valor do atributo do seu residente.</li>
+  <li>Use o tipo de dado indicado no chefe: <b>d4</b>, <b>d6</b> ou <b>d8</b>.</li>
+  <li>Some os dados.</li>
+  <li>Compare com <b>Y (exigência) = Y0 (exigência inicial) + atributo do chefe</b>.</li>
+</ol>
+
+<p><b>Vitória no atributo:</b> soma maior que Y.</p>
+<p><b>Derrota no atributo:</b> soma igual ou menor que Y.</p>
+
+<h3>Uso de cartas táticas</h3>
+<p><b>LOCAL:</b> o jogador ativo pode usar antes de qualquer rolagem.</p>
+
+<p><b>EVENTO:</b> antes da rolagem de um atributo, adversários podem jogar EVENTO. O jogador ativo não pode jogar EVENTO em si mesmo. Apenas <b>1 EVENTO</b> pode ser usado por atributo.</p>
+
+<p>Qualquer adversário pode jogar EVENTO, a prioridade segue a ordem da rodada, definida no início do jogo. EVENTO sempre custa 1 energia.</p>
+
+<p><b>ITEM:</b> pode ser usado apenas depois do resultado da batalha. ITEM não muda rolagens anteriores e não transforma derrota em vitória.</p>
+
+<h3>Resultado da batalha</h3>
+<p>Você vence a batalha se vencer <b>3 ou mais</b> dos 5 atributos.</p>
+
+<p><b>Se vencer:</b></p>
+<ul>
+  <li>Ganhe <b>+1 ponto</b>.</li>
+  <li>Compre cartas táticas conforme a recompensa do chefe:</li>
+  <li><b>d4:</b> 1 carta</li>
+  <li><b>d6:</b> 2 cartas</li>
+  <li><b>d8:</b> 3 cartas</li>
+</ul>
+
+<p>Se vencer um chefe <b>d8</b>, role <b>1d20</b>. Se sair <b>20</b>, ganhe <b>+1 ponto</b> e <b>+1 energia</b>.</p>
+
+<p><b>Se perder:</b> perca <b>−1 energia adicional</b>.</p>
+
+<h3>Mão</h3>
+<p>O limite de mão é <b>6 cartas táticas</b>. Enquanto a mão do jogador tiver 6 cartas, nenhuma carta pode ser comprada.</p>
+
+<h3>Fim do jogo</h3>
+<p>Quando um jogador chega a <b>10 pontos</b>, o jogo termina imediatamente. Esse jogador vence.</p>
+
+
             </div>
 
             <button class="rules-arrow rules-arrow-right" id="rulesNextButton">
