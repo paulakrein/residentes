@@ -788,9 +788,11 @@ function attachAvatarModals() {
 }
 
 startTurnButton.addEventListener("click", () => {
+  playerEnergyValue++;
+  updateEnergyDisplays();
+
   isChoosingBossForBattle = true;
   selectedBossForBattle = null;
-  alert("Escolha um chefe para batalhar.");
 });
 
 battleModalClose.addEventListener("click", () => {
