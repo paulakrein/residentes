@@ -254,7 +254,7 @@ body {
 /* TELA INICIAL */
 
 .start-screen {
-  background: #5f6d70;
+    background-image: url(assets/cartas/bg/wood-dark.png);
 }
 
 .name-input {
@@ -307,7 +307,7 @@ body {
 /* TELA DE ESCOLHA */
 
 .resident-screen {
-  background: #5E6A70;
+    background-image: url(assets/cartas/bg/wood-dark.png);
 }
 
 .resident-screen h1 {
