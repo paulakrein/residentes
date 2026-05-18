@@ -925,7 +925,7 @@ restartGameButton.addEventListener("click", () => {
 rulesButton.addEventListener("click", openRulesPanel);
 
 creditsButton.addEventListener("click", () => {
-  alert("Residentes");
+  alert("Bat Girl");
 });
 
 const rulesPanel = document.getElementById("rulesPanel");

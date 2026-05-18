@@ -1163,17 +1163,17 @@ position: RELATIVE;
 
 .rules-book {
   display: none;
-    width: 95%;
+  width: 95%;
     height: 100%;
     border-radius: 18px;
-    background: #f2f2f2;
+    background: #F7F2EB;
     color: #333;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 15px;
     line-height: 1.45;
     overflow-y: auto;
     margin: auto;
-    padding: 10%;
+    padding: 8%;
 }
 
 .rules-book.active {
@@ -1226,5 +1226,5 @@ position: RELATIVE;
     font-weight: bold;
     cursor: pointer;
     display: block;
-    margin: auto;
+    margin: 10px auto 0;
 }
