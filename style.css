@@ -50,7 +50,8 @@ body {
   font-size: clamp(16px, 5vw, 28px);
   cursor: pointer;
 }
-.settings-button:hover {
+.settings-button:hover,
+button:hover {
   filter: brightness(1.15);
 }
 
