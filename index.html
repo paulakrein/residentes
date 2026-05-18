@@ -37,7 +37,9 @@
   <section class="screen board-screen" id="boardScreen">
 
     <section class="opponent-area">
-      <div class="settings-button"><img src="assets/cartas/icons/settings.svg"></div>
+      <div class="settings-button" id="settingsButton">
+        <img src="assets/cartas/icons/settings.svg">
+      </div>
 
       <div class="opponent-avatar">
         <img id="opponentAvatarImg" />
@@ -156,6 +158,28 @@
     <div class="card-modal" id="cardModal">
       <button class="card-modal-close" id="cardModalClose">×</button>
       <img class="card-modal-img" id="cardModalImg" />
+    </div>
+
+    <div class="settings-modal" id="settingsModal">
+
+      <div class="settings-modal-box">
+
+        <button class="settings-modal-close" id="settingsModalClose">×</button>
+
+        <button class="settings-link" id="restartGameButton">
+          Recomeçar
+        </button>
+
+        <button class="settings-link" id="rulesButton">
+          Regras
+        </button>
+
+        <button class="settings-link" id="creditsButton">
+          Créditos
+        </button>
+
+      </div>
+
     </div>
 
     <div class="battle-modal" id="battleModal">

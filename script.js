@@ -56,6 +56,15 @@ const battleAllyCard = document.getElementById("battleAllyCard");
 const opponentAllySlot = document.getElementById("opponentAllySlot");
 const switchPlayerButton = document.getElementById("switchPlayerButton");
 
+const settingsButton = document.getElementById("settingsButton");
+
+const settingsModal = document.getElementById("settingsModal");
+const settingsModalClose = document.getElementById("settingsModalClose");
+
+const restartGameButton = document.getElementById("restartGameButton");
+const rulesButton = document.getElementById("rulesButton");
+const creditsButton = document.getElementById("creditsButton");
+
 let previewResident = null;
 
 let playerName = "";
@@ -812,3 +821,33 @@ document
   });
 
   switchPlayerButton.addEventListener("click", swapPlayers);
+
+  function openSettingsModal() {
+  settingsModal.classList.add("active");
+}
+
+function closeSettingsModal() {
+  settingsModal.classList.remove("active");
+}
+
+settingsButton.addEventListener("click", openSettingsModal);
+
+settingsModalClose.addEventListener("click", closeSettingsModal);
+
+settingsModal.addEventListener("click", (event) => {
+  if (event.target === settingsModal) {
+    closeSettingsModal();
+  }
+});
+
+restartGameButton.addEventListener("click", () => {
+  location.reload();
+});
+
+rulesButton.addEventListener("click", () => {
+  alert("Em breve.");
+});
+
+creditsButton.addEventListener("click", () => {
+  alert("Residentes");
+});
