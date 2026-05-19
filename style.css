@@ -401,7 +401,7 @@ button:hover {
 }
 
 .boss-card {
-  width: 48%;
+  width: 31%;
   aspect-ratio: 2 / 3;
   object-fit: contain;
 }

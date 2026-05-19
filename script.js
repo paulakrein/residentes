@@ -192,11 +192,13 @@ residentConfirmButton.addEventListener("click", () => {
 
 const opponentBoss1 = document.getElementById("opponentBoss1");
 const opponentBoss2 = document.getElementById("opponentBoss2");
+const opponentBoss3 = document.getElementById("opponentBoss3");
+
 const playerBoss1 = document.getElementById("playerBoss1");
 const playerBoss2 = document.getElementById("playerBoss2");
+const playerBoss3 = document.getElementById("playerBoss3");
 
-const playerBossCards = [playerBoss1, playerBoss2];
-
+const playerBossCards = [playerBoss1, playerBoss2, playerBoss3];
 
 const opponentHandCards = document.querySelectorAll(".opponent-hand .card");
 
@@ -219,6 +221,7 @@ function tacticBackPath(type) {
 
 function drawBosses() {
   opponentBossHand = [
+    bossDeck.shift(),
     bossDeck.shift(),
     bossDeck.shift(),
   ].filter(Boolean);
@@ -299,11 +302,12 @@ function drawPlayerInitialBosses() {
   playerBossHand = [
     bossDeck.shift(),
     bossDeck.shift(),
+    bossDeck.shift(),
   ].filter(Boolean);
 }
 
 function renderOpponentBossHand() {
-  const opponentBossCards = [opponentBoss1, opponentBoss2];
+  const opponentBossCards = [opponentBoss1, opponentBoss2, opponentBoss3];
 
   opponentBossCards.forEach((slot, index) => {
     const card = opponentBossHand[index];
@@ -710,8 +714,8 @@ function renderPlayerTacticHand() {
 }
 
 function drawFromBossDeck() {
-  if (playerBossHand.length >= 2) {
-    alert("Você não pode comprar mais de 2 cartas chefe.");
+  if (playerBossHand.length >= 3) {
+    alert("Você não pode comprar mais de 3 cartas chefe.");
     return;
   }
 
