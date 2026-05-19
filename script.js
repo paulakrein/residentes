@@ -223,7 +223,6 @@ function drawBosses() {
   opponentBossHand = [
     bossDeck.shift(),
     bossDeck.shift(),
-    bossDeck.shift(),
   ].filter(Boolean);
 
   drawPlayerInitialBosses();
@@ -300,7 +299,6 @@ function drawPlayerInitialTactics() {
 
 function drawPlayerInitialBosses() {
   playerBossHand = [
-    bossDeck.shift(),
     bossDeck.shift(),
     bossDeck.shift(),
   ].filter(Boolean);
