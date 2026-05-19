@@ -383,7 +383,7 @@ button:hover {
 .opponent-bosses,
 .player-bosses {
   position: absolute;
-  left: 50%;
+  left: 58%;
   width: 47%;
   transform: translateX(-50%);
   display: flex;
