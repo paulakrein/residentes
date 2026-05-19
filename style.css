@@ -384,10 +384,10 @@ button:hover {
 .player-bosses {
   position: absolute;
   left: 50%;
-  width: 35%;
+  width: 47%;
   transform: translateX(-50%);
   display: flex;
-  gap: 10%;
+  gap: 6%;
   z-index: 3;
   cursor: pointer;
 }
