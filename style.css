@@ -566,6 +566,10 @@ button:hover {
   z-index: 101;
 }
 
+.discard-button:hover img, .card-modal-close:hover {
+  scale: 0.9;
+}
+
 .card-modal-img {
   position: absolute;
   top: 18%;
