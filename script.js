@@ -603,7 +603,7 @@ function openCardModal(src, options = {}) {
   if (options.showDiscardButton) {
     const discardButton = document.createElement("button");
     discardButton.className = "discard-button";
-    discardButton.textContent = "DESCARTAR";
+    discardButton.innerHTML = '<img src="assets/cartas/icons/discard.svg">';
 
     discardButton.addEventListener("click", () => {
       if (options.discardType === "tactic") {

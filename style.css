@@ -301,7 +301,7 @@ button:hover {
 }
 
 .start-button:disabled {
-  opacity: 0.45;
+  opacity: 0.65;
 }
 
 .start-button:not(:disabled) {
@@ -523,19 +523,20 @@ button:hover {
 }
 
 .resident-confirm-button {
-  position: absolute;
-  top: 79%;
-  left: 50%;
-  width: 47%;
-  height: 7%;
-  transform: translateX(-50%);
-  border: none;
-  background: #cf8258;
-  color: #f2f2f2;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: clamp(16px, 4.5vw, 24px);
-  font-weight: bold;
-  cursor: pointer;
+    position: absolute;
+    top: 82%;
+    left: 50%;
+    width: 40%;
+    height: 6%;
+    transform: translateX(-50%);
+    border: none;
+    background: #cf8258;
+    color: #f2f2f2;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 100px;
 }
 
 /* MODAL GERAL DE CARTAS */
@@ -648,40 +649,39 @@ button:hover {
 /* botão BATALHAR dentro do modal da carta */
 
 .battle-button {
-  position: absolute;
-  left: 50%;
-  top: 74%;
-  width: 47%;
-  height: 7%;
-  transform: translateX(-50%);
-  border: none;
-  background: #cf8258;
-  color: #f2f2f2;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: clamp(16px, 4.5vw, 24px);
-  font-weight: bold;
-  cursor: pointer;
-  z-index: 101;
+    position: absolute;
+    left: 50%;
+    top: 80%;
+    width: 47%;
+    height: 7%;
+    transform: translateX(-50%);
+    background: #cf8258;
+    color: #f2f2f2;
+    z-index: 101;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 100px;
+    border: none;
 }
 
 .discard-button {
-  position: absolute;
-  left: 50%;
-  top: 82%;
-  width: 47%;
-  height: 7%;
-  transform: translateX(-50%);
-
-  border: none;
-  background: #5e6a70;
-  color: #f2f4f7;
-
-  font-family: Georgia, serif;
-  font-size: clamp(15px, 4vw, 22px);
-  font-weight: bold;
-
-  cursor: pointer;
-  z-index: 101;
+    position: absolute;
+    left: 50%;
+    top: 88%;
+    width: 40%;
+    height: 6%;
+    transform: translateX(-50%);
+    z-index: 101;
+    background: #5e6a70;
+    color: #f2f2f2;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 100px;
+    border: none;
 }
 
 /* MODAL DE BATALHA */
@@ -890,7 +890,7 @@ dice-object .die:hover {
 }
 
 #roll:disabled {
-  opacity: 0.45;
+  opacity: 0.65;
   pointer-events: none;
 }
 
