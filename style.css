@@ -326,13 +326,14 @@ button:hover {
 }
 
 .resident-options {
-  position: absolute;
-  top: 40%;
-  left: 6%;
-  width: 88%;
-  height: 24%;
-  display: flex;
-  justify-content: space-between;
+position: absolute;
+    top: 40%;
+    width: 100%;
+    height: 24%;
+    display: flex;
+    justify-content: space-evenly;
+    column-gap: 10px;
+    margin: auto;
 }
 
 /* Imagens dos residentes */
@@ -402,7 +403,7 @@ button:hover {
 }
 
 .boss-card {
-  width: 31%;
+  width: auto;
   aspect-ratio: 68 / 95;
   object-fit: contain;
   border-radius: 10px;
