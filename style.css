@@ -328,22 +328,20 @@ button:hover {
 .resident-options {
 position: absolute;
     top: 40%;
-    width: 100%;
     height: 24%;
     display: flex;
     justify-content: space-evenly;
-    column-gap: 10px;
     margin: auto;
+    width: 100%;
 }
 
 /* Imagens dos residentes */
 
 .resident-choice {
-  width: 32%;
-  aspect-ratio: 68 / 95;
-  object-fit: contain;
-  border-radius: 10px;
-  cursor: pointer;
+    aspect-ratio: 68 / 95;
+    object-fit: contain;
+    border-radius: 10px;
+    cursor: pointer;
 }
 
 .card:hover,
