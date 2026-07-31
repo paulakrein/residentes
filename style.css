@@ -119,7 +119,7 @@ button:hover {
 .card {
   position: absolute;
   width: 19%;
-  aspect-ratio: 2 / 3;
+  aspect-ratio: 68 / 95;
 }
 
 .tilted {
@@ -149,7 +149,7 @@ button:hover {
   position: absolute;
   top: 5%;
   width: 18%;
-  aspect-ratio: 2 / 3;
+  aspect-ratio: 68 / 95;
   border: 2px solid #888;
   background: white;
 }
@@ -226,7 +226,7 @@ button:hover {
 .ally-card {
   position: absolute;
   width: 11%;
-  aspect-ratio: 2 / 3;
+  aspect-ratio: 68 / 95;
   border: 1.5px solid #777;
   background: #d9ad75;
   z-index: 2;
@@ -339,7 +339,7 @@ button:hover {
 
 .resident-choice {
   width: 32%;
-  aspect-ratio: 2 / 3.2;
+  aspect-ratio: 68 / 95;
   object-fit: contain;
   cursor: pointer;
 }
@@ -402,7 +402,7 @@ button:hover {
 
 .boss-card {
   width: 31%;
-  aspect-ratio: 2 / 3;
+  aspect-ratio: 68 / 95;
   object-fit: contain;
 }
 
@@ -444,7 +444,7 @@ button:hover {
 .deck-zone {
   position: absolute;
   width: 18%;
-  aspect-ratio: 2 / 3;
+  aspect-ratio: 68 / 95;
   z-index: 2;
 }
 
@@ -516,7 +516,7 @@ button:hover {
   top: 20%;
   left: 50%;
   width: 75%;
-  aspect-ratio: 2 / 3;
+  aspect-ratio: 68 / 95;
   transform: translateX(-50%);
   object-fit: contain;
   border-radius: 6%;
@@ -575,7 +575,7 @@ button:hover {
   top: 18%;
   left: 50%;
   width: 75%;
-  aspect-ratio: 2 / 3;
+  aspect-ratio: 68 / 95;
   transform: translateX(-50%);
   object-fit: contain;
   border-radius: 6%;
@@ -752,7 +752,7 @@ button:hover {
   position: absolute;
   bottom: 0;
   width: 20%;
-  aspect-ratio: 2 / 3;
+  aspect-ratio: 68 / 95;
   overflow: hidden;
   cursor: pointer;
 }
@@ -906,7 +906,7 @@ dice-object .die:hover {
   top: 4%;
   left: 4%;
   width: 18%;
-  aspect-ratio: 2 / 3;
+  aspect-ratio: 68 / 95;
   object-fit: contain;
   z-index: 46;
   cursor: pointer;
@@ -1054,7 +1054,7 @@ position: RELATIVE;
   left: 18%;
   bottom: 0%;
   width: 18%;
-  aspect-ratio: 2 / 3;
+  aspect-ratio: 68 / 95;
   object-fit: contain;
   z-index: 46;
   cursor: pointer;
