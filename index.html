@@ -188,7 +188,7 @@
 
 <h3>Objetivo</h3>
 <p><b>Residentes</b> é um jogo competitivo de cartas. Cada jogador controla 1 residente e enfrenta chefes institucionais para ganhar pontos.</p>
-<p><b>Vence imediatamente</b> quem chegar a <b>10 pontos</b>.</p>
+<p><b>Vence</b> quem chegar a <b>10 pontos</b> no fim de seu turno.</p>
 
 <h3>Preparação</h3>
 <ol>
@@ -201,12 +201,12 @@
 
 <h3>Cartas</h3>
 <p><b>Residente:</b> seu personagem. Define quantos dados você rola em cada atributo.</p>
-<p><b>Chefe:</b> desafio a ser enfrentado. Define o tipo de dado, o custo, a recompensa e a dificuldade.</p>
-<p><b>Cartas táticas:</b> cartas usadas para alterar a batalha.</p>
+<p><b>Chefe:</b> desafio a ser enfrentado. Define o tipo de dado jogado na batalha de atributos, o custo em energia para entrar na batalha e a recompensa em cartas táticas e pontos se vitória.</p>
+<p><b>Cartas táticas:</b> cartas que alteram as probabilidades das batalhas e ampliam as possibilidades estratégicas.</p>
 
 <ul>
   <li><b>LOCAL:</b> usado antes da primeira rolagem.</li>
-  <li><b>EVENTO:</b> usado por adversários logo antes de uma rolagem, interfere no atributo rolado a seguir.</li>
+  <li><b>EVENTO:</b> usado por adversários logo antes de uma rolagem, interfere no atributo rolado a seguir. Um por batalha.</li>
   <li><b>ITEM:</b> usado após vitória ou derrota na batalha.</li>
 </ul>
 
@@ -223,50 +223,50 @@
 <p>No seu turno, escolha uma ação:</p>
 <ol>
   <li><b>Enfrentar</b> um chefe do seu campo.</li>
-  <li><b>Comprar</b> um chefe aleatório e enfrentá-lo.</li>
-  <li><b>Descanso institucional</b>: +2 energia e +1 carta e encerrar o turno</li>
+  <li><b>Comprar</b> um chefe aleatório e enfrentá-lo. Se não tiver energia para batalhar esse chefe, é considerada derrota.</li>
+  <li><b>Descanso institucional</b>: +2 energia e +1 carta e encerrar o turno.</li>
 </ol>
 
 <h3>Batalha</h3>
-<p>A batalha tem 5 atributos, sempre nesta ordem:</p>
+<p>A batalha tem 5 atributos, que são disputados nesta ordem:</p>
 <ol>
-  <li>Persistência</li>
-  <li>Inteligência</li>
-  <li>Sedução</li>
-  <li>Carisma</li>
-  <li>Autoridade</li>
+  <li>Persistência</li> (peixe)
+  <li>Inteligência</li> (coruja)
+  <li>Intuição</li> (flor)
+  <li>Carisma</li> (máscara)
+  <li>Autoridade</li> (coroa)
 </ol>
 
-<p>Para cada atributo:</p>
+<p>Para cada atributo, identifique:</p>
 <ol>
-  <li>Role dados iguais ao valor do atributo do seu residente.</li>
-  <li>Use o tipo de dado indicado no chefe: <b>d4</b>, <b>d6</b> ou <b>d8</b>.</li>
-  <li>Some os dados.</li>
-  <li>Compare com <b>Y (exigência) = Y0 (exigência inicial) + atributo do chefe</b>.</li>
+  <li>O valor do atributo do Residente; o valor do atributo determina quantos dados serão lançados.</li>
+  <li>O tipo de dado indicado na carta adversária: <b>d4</b>, <b>d6</b> ou <b>d8</b>. O adversário determina qual dado será usado.</li>
+  <li>Some o resultado dos dados.</li>
+  <li>Compare com <b>a EXIGÊNCIA</b>. A exigência é calculada pela soma da exigência base, no campo superior direito da carta chefe, e o atributo do chefe.</li>
 </ol>
 
-<p><b>Vitória no atributo:</b> soma maior que Y.</p>
-<p><b>Derrota no atributo:</b> soma igual ou menor que Y.</p>
+<p><b>Vitória no atributo:</b> soma maior que a EXIGÊNCIA.</p>
+<p><b>Derrota no atributo:</b> soma igual ou menor que EXIGÊNCIA.</p>
 
 <h3>Uso de cartas táticas</h3>
 <p><b>LOCAL:</b> o jogador ativo pode usar antes de qualquer rolagem.</p>
 
-<p><b>EVENTO:</b> antes da rolagem de um atributo, adversários podem jogar EVENTO. O jogador ativo não pode jogar EVENTO em si mesmo. Apenas <b>1 EVENTO</b> pode ser usado por atributo.</p>
+<p><b>EVENTO:</b> antes da rolagem de um atributo, adversários podem jogar EVENTO. O jogador ativo não pode jogar EVENTO em si mesmo. Apenas <b>1 EVENTO</b> pode ser usado por atributo, e apenas 1 EVENTO pode ser usado na batalha.</p>
 
 <p>Qualquer adversário pode jogar EVENTO, a prioridade segue a ordem da rodada, definida no início do jogo. EVENTO sempre custa 1 energia.</p>
 
-<p><b>ITEM:</b> pode ser usado apenas depois do resultado da batalha. ITEM não muda rolagens anteriores e não transforma derrota em vitória.</p>
+<p><b>ITEM:</b> pode ser usado apenas depois do resultado da batalha.</p>
 
 <h3>Aliados</h3>
 
-<p>Ao vencer um chefe, o jogador pode transformá-lo em um <b>ALIADO</b>, em vez de receber a recompensa em cartas.</p>
+<p>Ao vencer um chefe, o jogador pode transformá-lo em um <b>ALIADO</b>, em vez de receber a recompensa em cartas. Ele mantém, no entanto, recebendo a recompensa em pontos.</p>
 
 <p>Ao se tornar aliado:</p>
 
 <ul>
   <li>o chefe sai do campo de chefes;</li>
   <li>o jogador não ganha as cartas modificadoras daquela vitória;</li>
-  <li>o chefe permanece ao lado do residente;</li>
+  <li>o chefe permanece na mesa, ao lado da carta RESIDENTE;</li>
   <li>o aliado passa a fornecer seu <b>efeito de aliado</b> de forma contínua.</li>
 </ul>
 
@@ -283,22 +283,23 @@
 
 <p><b>Se vencer:</b></p>
 <ul>
-  <li>Ganhe <b>+1 ponto</b>.</li>
+  <li>Ganhe pontos:</li>
+  <li><b>d4:</b> 1 ponto</li>
+  <li><b>d6:</b> 2 pontos</li>
+  <li><b>d8:</b> 3 pontos</li>
   <li>Compre cartas táticas conforme a recompensa do chefe:</li>
   <li><b>d4:</b> 1 carta</li>
   <li><b>d6:</b> 2 cartas</li>
   <li><b>d8:</b> 3 cartas</li>
 </ul>
 
-<p>Se vencer um chefe <b>d8</b>, role <b>1d20</b>. Se sair <b>20</b>, ganhe <b>+1 ponto</b> e <b>+1 energia</b>.</p>
-
-<p><b>Se perder:</b> perca <b>−1 energia adicional</b>.</p>
+<p><b>Se perder:</b> <b>-1 energia adicional</b>.</p>
 
 <h3>Mão</h3>
-<p>O limite de mão é <b>6 cartas táticas</b>. Enquanto a mão do jogador tiver 6 cartas, nenhuma carta pode ser comprada.</p>
+<p>O limite de mão é <b>7 cartas táticas</b>. Enquanto a mão do jogador tiver 7 cartas, nenhuma carta pode ser comprada.</p>
 
 <h3>Fim do jogo</h3>
-<p>Quando um jogador chega a <b>10 pontos</b>, o jogo termina imediatamente. Esse jogador vence.</p>
+<p>Quando um jogador chega ao fim do turno com <b>10 pontos</b>, o jogo termina imediatamente. Esse jogador vence.</p>
 
 
             </div>
