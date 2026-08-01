@@ -1003,6 +1003,14 @@ const rulesPages = [
     src: "assets/cartas/regras/regra-02.png",
   },
   {
+    type: "image",
+    src: "assets/cartas/regras/regra-03.png",
+  },
+  {
+    type: "image",
+    src: "assets/cartas/regras/regra-04.png",
+  },
+  {
     type: "book",
   },
 ];
